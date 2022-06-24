@@ -156,30 +156,31 @@
         <li style="padding-bottom: 20px; padding-left: 20px;">2023 <br/>Development and Construction of Text Metaverse.
         </li>
       </ul>
-
-      <p><span style="color: #fff;padding-bottom: 15px;padding-top:60px;display:block;line-height: 1;">Word Contract (Rinkeby)</span>
+      <p><span style="color: #fff;padding-bottom: 15px;padding-top:60px;display:block;font-size: 24px;line-height: 1;">Contract (Rinkeby)</span>
       </p>
+
+      <p><span style="color: #fff;display:block;">Word </span></p>
       <div style="word-break: break-all;padding-bottom: 20px;color:#ffffff;">
         0x8D45FC59143C1741807d4A1F03956A5AeC303463
       </div>
 
-      <p><span style="color: #fff;padding-bottom: 15px;display:block;line-height: 1;">Sentence Contract (Rinkeby)</span>
+      <p><span style="color: #fff;display:block;">Sentence</span>
       </p>
       <div style="word-break: break-all;padding-bottom: 20px;color:#ffffff;">
         0x26572469B798327978DBA222e8bCC500528d9dB5
       </div>
-      <p><span style="color: #fff;padding-bottom: 15px;display:block;line-height: 1;">New NFT Contract (Rinkeby)</span>
+      <p><span style="color: #fff;display:block;">Merge</span>
       </p>
       <div style="word-break: break-all;padding-bottom: 20px;color:#ffffff;">
         0xE679571C9FbbF69AE1eEE1823eEa780A40f990B6
       </div>
       <p><span
-          style="color: #fff;padding-bottom: 15px;display:block;line-height: 1;">TEXT (Rinkeby)</span>
+          style="color: #fff;display:block;">TEXT</span>
       </p>
       <div target="_blank" style="word-break: break-all;padding-bottom: 20px;color:#ffffff;">
         0x305Db03d3E0D2067daf33A0bF751c77ACb7808D2
       </div>
-      <p><span style="color: #fff;padding-bottom: 15px;display:block;line-height: 1;">Mint Pool (Rinkeby)</span>
+      <p><span style="color: #fff;display:block;">Mint Pool</span>
       </p>
       <div style="word-break: break-all;padding-bottom: 20px;color:#ffffff;">
         0x98645d0D83BC47968b1Cad0B6EDdAfe4E75D6088
@@ -342,27 +343,30 @@
         <li style="padding-bottom: 20px; padding-left: 20px;">2023 <br/>Development and Construction of Text Metaverse.
         </li>
       </ul>
-      <p><span style="color: #fff;padding-bottom: 10px;padding-top:60px;display:block;line-height: 1;">Word Contract (Rinkeby)</span>
+      <p><span style="color: #fff;padding-bottom: 10px;padding-top:60px;display:block;font-size: 20px;line-height: 1;">Contract (Rinkeby)</span>
       </p>
-      <div style="word-break: break-all;padding-bottom: 15px;color:#ffffff;">
+
+      <p><span style="color: #fff;padding-top:10px;display:block;">Word</span>
+      </p>
+      <div style="word-break: break-all;color:#ffffff;">
         0x8D45FC59143C1741807d4A1F03956A5AeC303463
       </div>
-      <p><span style="color: #fff;padding-bottom: 10px;padding-top:10px;display:block;line-height: 1;">Sentence Contract (Rinkeby)</span>
+      <p><span style="color: #fff;padding-top:10px;display:block;">Sentence </span>
       </p>
-      <div style="word-break: break-all;padding-bottom: 15px;color:#ffffff;">
+      <div style="word-break: break-all;color:#ffffff;">
         0x26572469B798327978DBA222e8bCC500528d9dB5
       </div>
-      <p><span style="color: #fff;padding-bottom: 10px;padding-top:10px;display:block;line-height: 1;">New NFT Contract (Rinkeby)</span>
+      <p><span style="color: #fff;padding-top:10px;display:block;">Merge</span>
       </p>
-      <div style="word-break: break-all;padding-bottom: 15px;color:#ffffff;">
+      <div style="word-break: break-all;color:#ffffff;">
         0xE679571C9FbbF69AE1eEE1823eEa780A40f990B6
       </div>
-      <p><span style="color: #fff;padding-bottom: 10px;padding-top:10px;display:block;line-height: 1;">TEXT (Rinkeby)</span>
+      <p><span style="color: #fff;padding-top:10px;display:block;">TEXT</span>
       </p>
-      <div style="word-break: break-all;padding-bottom: 15px;color:#ffffff;">
+      <div style="word-break: break-all;color:#ffffff;">
         0x305Db03d3E0D2067daf33A0bF751c77ACb7808D2
       </div>
-      <p><span style="color: #fff;padding-bottom: 10px;padding-top:10px;display:block;line-height: 1;">Mint Pool (Rinkeby)</span>
+      <p><span style="color: #fff;padding-top:10px;display:block;">Mint Pool</span>
       </p>
       <div style="word-break: break-all;padding-bottom: 15px;color:#ffffff;">
         0x98645d0D83BC47968b1Cad0B6EDdAfe4E75D6088
