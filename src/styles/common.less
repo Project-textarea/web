@@ -1,0 +1,301 @@
+/*basic css*/
+
+html, body, dl, dd, img, form, div, ul, ol, li, h1, h2, h3, h4, h5, h6, p, button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+a{
+  border: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+a:focus{outline:none;}
+body {
+  font-size: 12px;
+  line-height: 1.5;
+  background-color: #f6f5fc;
+}
+::-webkit-scrollbar{
+  width: 0;
+  height: 5px;
+  background: transparent;
+}
+::-webkit-scrollbar-track-piece{
+  background-color: rgba(0,0,0,1);
+  -webkit-border-radius: 7px;
+}
+
+::-webkit-scrollbar-thumb:vertical{
+  height: 5px;
+  background-color: rgba(0,0,0,1);
+  -webkit-border-radius: 7px;
+}
+::-webkit-scrollbar-thumb:horizontal{
+  width: 0;
+  background-color: rgba(0,0,0,1);
+  -webkit-border-radius: 7px;
+}
+input, textarea, button {
+  padding: 0;
+}
+
+input[type="button"], input[type="submit"], input[type="reset"] {
+  -webkit-appearance: none;
+}
+
+input {
+  outline: none;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+input:focus {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-user-modify: read-write-plaintext-only;
+}
+
+textarea {
+  -webkit-appearance: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+a {
+  cursor: pointer;
+}
+
+ul, ol, li {
+  list-style-type: none;
+}
+
+.slick-slide:focus, input:focus, a:focus {
+  outline: none !important;
+}
+
+img {
+  border: 0;
+  vertical-align: middle;
+  max-width: 100%;
+}
+
+select, input, textarea, button {
+  vertical-align: middle;
+  outline: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0
+}
+
+tr {
+  margin: 0;
+  padding: 0;
+}
+
+td {
+  margin: 0;
+  padding: 0;
+}
+
+iframe {
+  border: none;
+}
+
+select {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  outline: none
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+}
+
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
+.wrap {
+  border: 0;
+  padding: 0;
+  width: 1150px;
+  margin: 0 auto;
+  *zoom: 1;
+}
+
+.wrap:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.clear {
+  clear: both;
+  font-size: 0;
+  line-height: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+.fix {
+  *zoom: 1;
+}
+
+.fix:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+}
+
+a {
+  display: inline-block;
+  max-width: 100%;
+}
+
+.ones {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap
+}
+
+.twos {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical
+}
+
+.clearfix:after, .clearfix:before {
+  content: "";
+  display: table
+}
+
+.clearfix:after {
+  clear: both
+}
+
+.clearfix {
+  zoom: 1
+}
+
+.picture {
+  position: relative;
+  overflow: hidden;
+}
+
+.picture img {
+  transition: all .7s;
+  -moz-transition: all .7s;
+  -webkit-transition: all .7s;
+}
+
+.each-item:hover .picture img {
+  transform: scale(1.15);
+  -moz-transform: scale(1.15);
+  -webkit-transform: scale(1.15);
+  zoom: 1.15 \9;
+}
+
+.scanle_img {
+  overflow: hidden;
+}
+
+input:-webkit-autofill {
+  box-shadow: 0 0 0px 1000px white inset !important;
+}
+
+input[type="button"], input[type="submit"], input[type="reset"] {
+  -webkit-appearance: none;
+}
+
+textarea {
+  -webkit-appearance: none;
+}
+
+.container_wrapprer {
+  width: 100%;
+  max-width: 440px;
+  margin: auto;
+  padding-top: 75px;
+  box-sizing: border-box;
+}
+
+input::placeholder {
+  color: #333333
+}
+
+input::-webkit-input-placeholder {
+  color: #333333
+}
+
+.box {
+  max-width: 1200px;
+  width: 90%;
+  margin: auto
+
+}
+.wrapper-flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wrapper-flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wrapper-flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.hidden-text-three {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.hidden-text-second {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.hidden-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

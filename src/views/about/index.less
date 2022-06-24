@@ -1,0 +1,53 @@
+.container{
+  width: 100%;
+  min-height: 100vh;
+  background: #000000;
+  padding:calc(6vh + 45px) 0  228px;
+  box-sizing: border-box;
+}
+.container:before{
+  content: '';
+  display: block;
+  background: #000000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height:calc(6vh + 45px);
+  z-index: 2;
+}
+.content{
+  font-size: 22px;
+  line-height: 29.22px;
+  margin: auto;
+  color: #ffffff;
+  max-width: 320px;
+  box-sizing: border-box;
+}
+.pc-show{
+
+}
+.iphone-show{
+  display: none;
+}
+@media screen and (max-width: 980px) {
+  .pc-show{
+    display: none;
+  }
+  .iphone-show{
+    display: block;
+  }
+  .container {
+    padding: 50px 0 120px;
+  }
+
+  .container:before {
+    height:0;
+  }
+  .content{
+    font-size: 18px;
+    line-height: 1.4;
+    //width: 75%;
+    width: 320px;
+  }
+}
