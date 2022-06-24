@@ -1,7 +1,7 @@
 <template>
   <div class="container about-container">
     <div class=" content pc-show">
-      <p style="padding-bottom: 20px">Textarea is a text derivative of NFT, which provides NFT with more value.</p>
+      <p style="padding-bottom: 20px"><span style="color: #fff;display:block;font-size: 24px;line-height: 1.2;">Textarea is a text derivative of NFT, which provides NFT with more value.</span></p>
       <p><span style="color: #fff;padding-bottom: 15px;padding-top:60px;display:block;font-size: 24px;line-height: 1;">Words</span>
       </p>
       <ul>
@@ -137,54 +137,56 @@
       <p><span style="color: #fff;padding-bottom: 15px;padding-top:60px;display:block;font-size: 24px;line-height: 1;">Roadmap</span>
       </p>
       <ul>
-        <li style="padding-bottom: 20px; padding-left: 20px;">April - June, 2022:<br/>Development of word; sentence;
+        <li style="padding-bottom: 20px; padding-left: 20px;">April - June, 2022<br/>Development of word; sentence;
           synthesis; disassembly.
         </li>
-        <li style="padding-bottom: 20px; padding-left: 20px;">July, 2022:<br/>Testnet, mirror crowdfunding(5% of total
+        <li style="padding-bottom: 20px; padding-left: 20px;">July, 2022<br/>Testnet, mirror crowdfunding(5% of total
           TEXT).
         </li>
-        <li style="padding-bottom: 20px; padding-left: 20px;">August, 2022:<br/>Word; sentence; synthesis mainnet
+        <li style="padding-bottom: 20px; padding-left: 20px;">August, 2022<br/>Word; sentence; synthesis mainnet
           launched, TEXT token released.
         </li>
-        <li style="padding-bottom: 20px; padding-left: 20px;">September - October, 2022:<br/>Sentence contest platform
+        <li style="padding-bottom: 20px; padding-left: 20px;">September - October, 2022<br/>Sentence contest platform
           development.
         </li>
-        <li style="padding-bottom: 20px; padding-left: 20px;">November, 2022:<br/>Sentence contest platform launched.
+        <li style="padding-bottom: 20px; padding-left: 20px;">November, 2022<br/>Sentence contest platform launched.
         </li>
-        <li style="padding-bottom: 20px; padding-left: 20px;">December, 2022:<br/>ubsequent funding and feature updates.
+        <li style="padding-bottom: 20px; padding-left: 20px;">December, 2022<br/>ubsequent funding and feature updates.
+        </li>
+        <li style="padding-bottom: 20px; padding-left: 20px;">2023 <br/>Development and Construction of Text Metaverse.
         </li>
       </ul>
 
-      <p><span style="color: #fff;padding-bottom: 15px;padding-top:60px;display:block;font-size: 24px;line-height: 1;">Word Contract (Rinkeby)</span>
+      <p><span style="color: #fff;padding-bottom: 15px;padding-top:60px;display:block;line-height: 1;">Word Contract (Rinkeby)</span>
       </p>
       <div style="word-break: break-all;padding-bottom: 20px;color:#ffffff;">
         0x8D45FC59143C1741807d4A1F03956A5AeC303463
       </div>
 
-      <p><span style="color: #fff;padding-bottom: 15px;display:block;font-size: 24px;line-height: 1;">Sentence Contract (Rinkeby)</span>
+      <p><span style="color: #fff;padding-bottom: 15px;display:block;line-height: 1;">Sentence Contract (Rinkeby)</span>
       </p>
       <div style="word-break: break-all;padding-bottom: 20px;color:#ffffff;">
         0x26572469B798327978DBA222e8bCC500528d9dB5
       </div>
-      <p><span style="color: #fff;padding-bottom: 15px;display:block;font-size: 24px;line-height: 1;">New NFT Contract (Rinkeby)</span>
+      <p><span style="color: #fff;padding-bottom: 15px;display:block;line-height: 1;">New NFT Contract (Rinkeby)</span>
       </p>
       <div style="word-break: break-all;padding-bottom: 20px;color:#ffffff;">
         0xE679571C9FbbF69AE1eEE1823eEa780A40f990B6
       </div>
       <p><span
-          style="color: #fff;padding-bottom: 15px;display:block;font-size: 24px;line-height: 1;">TEXT (Rinkeby)</span>
+          style="color: #fff;padding-bottom: 15px;display:block;line-height: 1;">TEXT (Rinkeby)</span>
       </p>
       <div target="_blank" style="word-break: break-all;padding-bottom: 20px;color:#ffffff;">
         0x305Db03d3E0D2067daf33A0bF751c77ACb7808D2
       </div>
-      <p><span style="color: #fff;padding-bottom: 15px;display:block;font-size: 24px;line-height: 1;">Mint Pool (Rinkeby)</span>
+      <p><span style="color: #fff;padding-bottom: 15px;display:block;line-height: 1;">Mint Pool (Rinkeby)</span>
       </p>
       <div style="word-break: break-all;padding-bottom: 20px;color:#ffffff;">
         0x98645d0D83BC47968b1Cad0B6EDdAfe4E75D6088
       </div>
     </div>
     <div class="content iphone-show">
-      <p style="padding-bottom: 20px">Textarea is a text derivative of NFT, which provides NFT with more value.</p>
+      <p style="font-size: 20px;padding-bottom: 20px">Textarea is a text derivative of NFT, which provides NFT with more value.</p>
       <p><span style="color: #fff;padding-bottom: 10px;padding-top:60px;display:block;font-size: 20px;line-height: 1;">Words</span>
       </p>
       <ul>
@@ -320,45 +322,47 @@
       <p><span style="color: #fff;padding-bottom: 10px;padding-top:60px;display:block;font-size: 20px;line-height: 1;">Roadmap</span>
       </p>
       <ul>
-        <li style="padding-bottom: 20px; padding-left: 20px;">April - June, 2022:<br/>Development of word; sentence;
+        <li style="padding-bottom: 20px; padding-left: 20px;">April - June, 2022<br/>Development of word; sentence;
           synthesis; disassembly.
         </li>
-        <li style="padding-bottom: 20px; padding-left: 20px;">July, 2022:<br/>Testnet, mirror crowdfunding(5% of total
+        <li style="padding-bottom: 20px; padding-left: 20px;">July, 2022<br/>Testnet, mirror crowdfunding(5% of total
           TEXT).
         </li>
-        <li style="padding-bottom: 20px; padding-left: 20px;">August, 2022:<br/>Word; sentence; synthesis mainnet
+        <li style="padding-bottom: 20px; padding-left: 20px;">August, 2022<br/>Word; sentence; synthesis mainnet
           launched, TEXT token released.
         </li>
-        <li style="padding-bottom: 20px; padding-left: 20px;">September - October, 2022:<br/>Sentence contest platform
+        <li style="padding-bottom: 20px; padding-left: 20px;">September - October, 2022<br/>Sentence contest platform
           development.
         </li>
-        <li style="padding-bottom: 20px; padding-left: 20px;">November, 2022:<br/>Sentence contest platform launched.
+        <li style="padding-bottom: 20px; padding-left: 20px;">November, 2022<br/>Sentence contest platform launched.
         </li>
-        <li style="padding-bottom: 20px; padding-left: 20px;">December, 2022:<br/>Subsequent funding and feature
+        <li style="padding-bottom: 20px; padding-left: 20px;">December, 2022<br/>Subsequent funding and feature
           updates.
         </li>
+        <li style="padding-bottom: 20px; padding-left: 20px;">2023 <br/>Development and Construction of Text Metaverse.
+        </li>
       </ul>
-      <p><span style="color: #fff;padding-bottom: 10px;padding-top:60px;display:block;font-size: 20px;line-height: 1;">Word Contract (Rinkeby)</span>
+      <p><span style="color: #fff;padding-bottom: 10px;padding-top:60px;display:block;line-height: 1;">Word Contract (Rinkeby)</span>
       </p>
       <div style="word-break: break-all;padding-bottom: 15px;color:#ffffff;">
         0x8D45FC59143C1741807d4A1F03956A5AeC303463
       </div>
-      <p><span style="color: #fff;padding-bottom: 10px;padding-top:10px;display:block;font-size: 20px;line-height: 1;">Sentence Contract (Rinkeby)</span>
+      <p><span style="color: #fff;padding-bottom: 10px;padding-top:10px;display:block;line-height: 1;">Sentence Contract (Rinkeby)</span>
       </p>
       <div style="word-break: break-all;padding-bottom: 15px;color:#ffffff;">
         0x26572469B798327978DBA222e8bCC500528d9dB5
       </div>
-      <p><span style="color: #fff;padding-bottom: 10px;padding-top:10px;display:block;font-size: 20px;line-height: 1;">New NFT Contract (Rinkeby)</span>
+      <p><span style="color: #fff;padding-bottom: 10px;padding-top:10px;display:block;line-height: 1;">New NFT Contract (Rinkeby)</span>
       </p>
       <div style="word-break: break-all;padding-bottom: 15px;color:#ffffff;">
         0xE679571C9FbbF69AE1eEE1823eEa780A40f990B6
       </div>
-      <p><span style="color: #fff;padding-bottom: 10px;padding-top:10px;display:block;font-size: 20px;line-height: 1;">TEXT (Rinkeby)</span>
+      <p><span style="color: #fff;padding-bottom: 10px;padding-top:10px;display:block;line-height: 1;">TEXT (Rinkeby)</span>
       </p>
       <div style="word-break: break-all;padding-bottom: 15px;color:#ffffff;">
         0x305Db03d3E0D2067daf33A0bF751c77ACb7808D2
       </div>
-      <p><span style="color: #fff;padding-bottom: 10px;padding-top:10px;display:block;font-size: 20px;line-height: 1;">Mint Pool (Rinkeby)</span>
+      <p><span style="color: #fff;padding-bottom: 10px;padding-top:10px;display:block;line-height: 1;">Mint Pool (Rinkeby)</span>
       </p>
       <div style="word-break: break-all;padding-bottom: 15px;color:#ffffff;">
         0x98645d0D83BC47968b1Cad0B6EDdAfe4E75D6088
