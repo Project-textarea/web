@@ -20,7 +20,6 @@
                   spellcheck="false"
                   id="em1">
         </textarea>
-        <!--                <div style="color: #ffffff">{{ JSON.stringify(sentence) }}</div>-->
       </div>
       <div class="wrapper-flex-row button-total-container">
         <div class="color">
@@ -57,10 +56,6 @@
           Connect
         </div>
       </div>
-
-      <!--      <div class="connect connect-wallet" @click="connetMetamask()" v-show="!isConnect">-->
-      <!--        <img src="@/assets/images/icon-green.svg" width="9"/>Connect Wallet-->
-      <!--      </div>-->
       <div class="button on" v-if="sentence.length==0" style="opacity: 0;cursor: default;">
         <img src="@/assets/images/icon-green.svg" width="12"/>Claim
       </div>
@@ -123,7 +118,6 @@ export default {
     address(e) {
     },
     sentence() {
-      // this.trimLen=this.proc(this.proc1(this.newsText(this.sentence))).replace(/\s+$/g, "").length;
     },
     result() {
     },
@@ -162,7 +156,6 @@ export default {
       }
       if (!window.ethereum) {
         if (this.address != null) {
-          // console.log(this.address)
           this.isConnect = true;
         }
       } else {
@@ -189,12 +182,10 @@ export default {
       if (em1.scrollHeight > 330) {
         this.$nextTick(() => {
           that.sentence = that.olds.replace(/\s+$/g, "");
-          // that.setLocation(em1, that.rang);
         })
         return false;
       }
       if (trim.length > 0) {
-        // let splitSentence = await initContracts().sentenceContract.methods.splitSentence(trim).call();
         this.queryTokenID(trim).then((res) => {
           this.result = true;
           if (this.sentence.length > 0 && res == 0 && that.setcolor != false) {
@@ -219,7 +210,6 @@ export default {
           this.$nextTick(() => {
             that.sentence = that.olds.replace(/\s+$/g, "");
             that.rang = 319
-            // that.setLocation(em1, that.rang)
           })
           return false;
         }
@@ -231,7 +221,6 @@ export default {
           return false;
         }
         if (trim.length > 0) {
-          // let splitSentence = await initContracts().sentenceContract.methods.splitSentence(trim).call();
           this.queryTokenID(trim).then((res) => {
             this.result = true;
             if (this.sentence.length > 0 && res == 0 && that.setcolor != false) {
@@ -254,7 +243,6 @@ export default {
       if (trim.length > 319) {
         this.$nextTick(() => {
           that.sentence = that.olds.replace(/\s+$/g, "");
-          // that.setLocation(em1, that.rang)
         })
         return false;
       }
@@ -270,18 +258,6 @@ export default {
   mounted() {
     this.checkWidth();
     this.checkMetamask();
-    // window.onresize = () => {
-    //   return (() => {
-    //     this.checkWidth()
-    //   })()
-    // }
-    // this.setTimeOut=setInterval(() => {
-    //   var that = this;
-    //   if (that.textfocus ) {
-    //     let em1 = document.getElementById('em1');
-    //     that.setLocation(em1, that.sentence.length);
-    //   }
-    // }, 100)
 
   },
   beforeRouteLeave(to, from, next) {
