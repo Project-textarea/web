@@ -53,6 +53,7 @@ export default {
   },
   data() {
     return {
+      word:['I','You','He','She','It','Am','Are','Were','Is','Was','Be','Do','Does','Did','Have','Has','Shall','Should','Will','Would','Can','Could','May','Might'],
       reload: false,
       isConnect: sessionStorage.getItem('isConnect') || false,
       refuse: false,
@@ -88,15 +89,22 @@ export default {
     }
     this.$watch('newRoleNameEn', debounce((newQuery) => {
       var that = this;
-      that.queryTokenID().then((res) => {
-        if (this.newRoleNameEn.length > 0 && res == 0) {
-          that.isClaim = true;
-          that.result = true;
-        } else {
-          that.isClaim = false;
-          that.result = true;
-        }
-      });
+      // console.log(!this.word.includes(this.newRoleNameEn),this.newRoleNameEn)
+      if(!this.word.indexOf(this.newRoleNameEn)){
+        that.queryTokenID().then((res) => {
+          console.log(res)
+          if (this.newRoleNameEn.length > 0 && res == 0) {
+            that.isClaim = true;
+            that.result = true;
+          } else {
+            that.isClaim = false;
+            that.result = true;
+          }
+        });
+      }else {
+        that.isClaim = false;
+        that.result = true;
+      }
     }, 1000))
   },
   destroyed() {
@@ -343,19 +351,26 @@ export default {
     }
     ,
     async checkMetamask() {
+
+      var that = this;
       if (!window.ethereum) {
         return;
       }
       ethereum.on("accountsChanged", function (accounts) {
-        sessionStorage.setItem('address', accounts[0]);
-        this.address = sessionStorage.getItem('address');
+        if(accounts.length==0){
+          that.address =null ;
+          sessionStorage.removeItem('address')
+        }else {
+          sessionStorage.setItem('address', accounts[0]);
+          that.address = sessionStorage.getItem('address');
+        }
       });
       ethereum.on("networkChanged", function (accounts) {
         sessionStorage.setItem('isConnect', false)
         if (sessionStorage.getItem('isConnect') == 'true') {
-          this.isConnect = true;
+          that.isConnect = true;
         } else {
-          this.isConnect = false
+          that.isConnect = false
         }
         sessionStorage.removeItem('isConnect')
         sessionStorage.removeItem('address')
