@@ -319,14 +319,22 @@ export default {
         return;
       }
       ethereum.on("accountsChanged", function (accounts) {
-        sessionStorage.setItem('isConnect', false)
-        that.isConnect = sessionStorage.getItem('isConnect');
-        sessionStorage.setItem('address', accounts[0]);
-        that.address = sessionStorage.getItem('address');
-        that.showList = [];
-        that.showMergeList()
-        that.searchAllowance();
-        that.getData()
+        if(accounts.length==0){
+          that.address =null ;
+          that.isConnect = false
+          that.showList = [];
+          sessionStorage.removeItem('isConnect')
+          sessionStorage.removeItem('address')
+        }else {
+          sessionStorage.setItem('isConnect', false)
+          that.isConnect = sessionStorage.getItem('isConnect');
+          sessionStorage.setItem('address', accounts[0]);
+          that.address = sessionStorage.getItem('address');
+          that.showList = [];
+          that.showMergeList()
+          that.searchAllowance();
+          that.getData()
+        }
       });
       ethereum.on("chainChanged", function (accounts) {
         sessionStorage.setItem('isConnect', false)

@@ -980,6 +980,14 @@ export default {
         return;
       }
       let trueChainId = await this.utilsEvent.checkChainId();
+      // console.log('trueChainId',trueChainId)
+      if (!trueChainId) {
+        that.$message({
+          message: 'Please switch to the correct network',
+          type: 'warning'
+        });
+        return
+      }
       ethereum.request({method: 'eth_requestAccounts'})
           .then((accounts) => {
             console.log('accounts:', accounts)
@@ -1062,10 +1070,18 @@ export default {
       }
       ethereum.on("accountsChanged", function (accounts) {
         // console.log('change METAMASK', accounts)
-        sessionStorage.setItem('address', accounts[0]);
-        that.address = sessionStorage.getItem('address');
-        that.checkApprovedSentence()
-        that.checkApprovedOther()
+        if(accounts.length==0){
+          that.address =null ;
+          that.isConnect = false
+          sessionStorage.removeItem('isConnect')
+          sessionStorage.removeItem('address')
+        }else {
+          sessionStorage.setItem('address', accounts[0]);
+          that.address = sessionStorage.getItem('address');
+          that.checkApprovedSentence()
+          that.checkApprovedOther()
+        }
+        // console.log('accountsChanged',accounts)
       });
       ethereum.on('networkChanged', function (networkIDstring) {
         sessionStorage.setItem('isConnect', false)
@@ -1078,6 +1094,14 @@ export default {
         sessionStorage.removeItem('address')
         // console.log('networkChanged=>', that.isConnect);
       })
+
+      ethereum.on('disconnect', (error) => {
+        console.log('disconnect')
+        that.address =null ;
+        that.isConnect = false
+        sessionStorage.removeItem('isConnect')
+        sessionStorage.removeItem('address')
+      });
     }
     ,
   }

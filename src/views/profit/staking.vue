@@ -49,8 +49,8 @@
                   <ul class="content" v-if="showStake">
                     <li>
                       <div class="input wrapper-flex-row">
-                        <input type="text" v-model="stakeText" @input="stakeInput" @focus="searchAllowance"/>
-                        <a class="max" @click="maxClick(1)">Max</a>
+                        <input type="text" v-model="stakeText" @input="stakeInput" @focus="searchAllowance" :disabled="allowance==1" :style="allowance==1?'cursor: no-drop':''"/>
+                        <a class="max"  v-if="allowance!=1" @click="maxClick(1)" >Max</a>
                         <div v-if="stakeText==0||stakeText==''||stakeText==null">
                           <a class="stake" v-if="allowance==1" @click="approved" :class="refused?'refused':''"
                              style="background: #2de370;color: #000000;margin-left: 5px;padding: 0 13px;width: 100%;box-sizing: border-box;">Approved</a>
@@ -166,7 +166,7 @@
               <h4 class="top-desc wrapper-flex-row" @click="changeItem(1)">
                 <div class="left">Rewards to Collect</div>
                 <div class="right">
-                  <span v-if="WethPrice>=0">{{ WethPrice |NumFormat4 }}</span>
+                  <span v-if="WethPrice>=0">{{ WethPrice |NumFormat8 }}</span>
                   <span v-else>--</span>
                 </div>
               </h4>
@@ -194,7 +194,7 @@
                         <dd class="wrapper-flex-row">
                           <div class="tips">Earned to date:</div>
                           <div class=" price">
-                            {{ ethEarnToDate|NumFormat4 }}(${{ earhPrice.ethPrice * ethEarnToDate / 1000|NumFormat4 }})
+                            {{ ethEarnToDate|NumFormat6 }}(${{ earhPrice.ethPrice * ethEarnToDate / 1000|NumFormat6 }})
                           </div>
                         </dd>
                       </dl>
@@ -259,6 +259,7 @@ export default {
       shares: '--',
       walletPrice: '--',
       WethPrice: '--',
+      // WethPrice: 0.000410077504592868,
       collectText: '--',
       unstakeText: '',
       stakeText: '',
@@ -306,6 +307,36 @@ export default {
         return intPartFormat + floatPart
       }
     },
+    NumFormat6(value) {
+      if (!value) return '0.000000'
+      value = Number(value).toFixed(6)
+      var intPart = Math.trunc(value)// Get integer part
+      var intPartFormat = intPart.toString().replace(/(\d)(?=(?:\d{3})+$)/g, '$1,') // Break the whole number by three
+      var floatPart = '.000000' // Predefined fractional part
+      var value2Array = value.split('.')
+      // =2 indicates that data has decimal places
+      if (value2Array.length === 2) {
+        floatPart = value2Array[1].toString() // Get the decimal part
+        return intPartFormat + '.' + floatPart
+      } else {
+        return intPartFormat + floatPart
+      }
+    },
+    NumFormat8(value) {
+      if (!value) return '0.00000000'
+      value = Number(value).toFixed(8)
+      var intPart = Math.trunc(value)// Get integer part
+      var intPartFormat = intPart.toString().replace(/(\d)(?=(?:\d{3})+$)/g, '$1,') // Break the whole number by three
+      var floatPart = '.00000000' // Predefined fractional part
+      var value2Array = value.split('.')
+      // =2 indicates that data has decimal places
+      if (value2Array.length === 2) {
+        floatPart = value2Array[1].toString() // Get the decimal part
+        return intPartFormat + '.' + floatPart
+      } else {
+        return intPartFormat + floatPart
+      }
+    },
     Dateormat(value) {
       var date = new Date(value); //Format the date 
       var m = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Spt", "Oct", "Nov", "Dec"); //ALL MONTH
@@ -339,6 +370,9 @@ export default {
     },
     stakeText() {
       var that = this;
+      if(this.allowance==1){
+        this.stakeText='';
+      }
       if (that.stakeText == 0 || that.stakeText == '' || that.stakeText == null) {
       } else {
         // console.warn(this.stakeText)
@@ -441,6 +475,7 @@ export default {
       console.log('allowance', allowance)
       if (allowance == 0) {
         that.allowance = 1;
+        that.stakeText='';
       } else {
         that.allowance = 2;
       }
@@ -642,31 +677,29 @@ export default {
         if (typeof add != "undefined") {
           that.address = add;
         }
-        console.log('start get', that.address)
+        // console.log('start get', that.address)
         let UserInfo = await initContracts().mintContract.methods.userInfo(that.address).call();
         let totalPrice = await initContracts().tokenDistributorContract.methods.userInfo(address.mintSharingSystem).call();
         let Rewards = await initContracts().tokenDistributorContract.methods.calculatePendingRewards(address.mintSharingSystem).call();
         let stakePrice = await initContracts().mintContract.methods.calculateSharesValueInTEXT(that.address).call();
         let walletPrice = await initContracts().textareaContract.methods.balanceOf(that.address).call();
         let WethPrice = await initContracts().mintContract.methods.calculatePendingRewards(that.address).call();
-        console.log('walletPrice=>', walletPrice)
+        // console.log('walletPrice=>', walletPrice)
         that.shares = UserInfo.shares;
         // console.log('that.shares', that.shares)
         that.totalStake.textPrice = Number(new BigNumber(totalPrice.amount).div(1e18).toFixed(4))
         that.walletPrice = Number(new BigNumber(walletPrice).div(1e18).toFixed(4))
-        that.WethPrice = Number(new BigNumber(WethPrice).div(1e18).toFixed(8))
+        that.WethPrice = Number(new BigNumber(WethPrice).div(1e18).toFixed(10))
         that.Rewards = Number(new BigNumber(Rewards).div(1e18).toFixed(8))
-        console.log('that.Rewards', that.Rewards)
-        console.log('Rewards', Rewards)
-        console.log(' that.walletPrice', that.walletPrice)
+        // console.log('that.Rewards', that.Rewards)
+        // console.log('Rewards', Rewards)
+        // console.log(' that.walletPrice', that.walletPrice)
         // console.log('totalPrice', totalPrice)
         // console.log('that.totalStake.textPrice', that.totalStake.textPrice)
-
-
         that.firstData.walletPrice = walletPrice
         that.firstData.stakePrice = stakePrice
         that.Stake.textPrice = Number(new BigNumber(stakePrice).div(1e18).toFixed(18))
-        console.log(' that.Stake.textPrice', that.Stake.textPrice)
+        // console.log(' that.Stake.textPrice', that.Stake.textPrice)
         that.showWebData2();
         that.showWebData();
       } catch (e) {
@@ -853,14 +886,22 @@ export default {
         return;
       }
       ethereum.on("accountsChanged", function (accounts) {
-        sessionStorage.setItem('address', accounts[0]);
-        this.address = accounts[0];
-        console.log("this.address", this.address)
-        that.clearData();
-        that.getData(accounts[0])
-        that.searchAllowance();
-        that.showWebData2(accounts[0]);
-        that.showWebData(accounts[0]);
+        if(accounts.length==0){
+          that.address =null ;
+          that.isConnect = false;
+          that.clearData();
+          sessionStorage.removeItem('isConnect')
+          sessionStorage.removeItem('address')
+        }else {
+          sessionStorage.setItem('address', accounts[0]);
+          this.address = accounts[0];
+          console.log("this.address", this.address)
+          that.clearData();
+          that.getData(accounts[0])
+          that.searchAllowance();
+          that.showWebData2(accounts[0]);
+          that.showWebData(accounts[0]);
+        }
       });
       ethereum.on('networkChanged', function (accounts) {
         // Time to reload your interface with accounts[0]!

@@ -137,24 +137,24 @@
       <p><span style="color: #fff;padding-bottom: 15px;padding-top:60px;display:block;font-size: 24px;line-height: 1;">Roadmap</span>
       </p>
       <ul>
-        <li style="padding-bottom: 20px; padding-left: 20px;">April - June, 2022<br/>Development of word; sentence;
-          synthesis; disassembly.
-        </li>
-        <li style="padding-bottom: 20px; padding-left: 20px;">July, 2022<br/>Testnet, mirror crowdfunding(5% of total
-          TEXT).
-        </li>
-        <li style="padding-bottom: 20px; padding-left: 20px;">August, 2022<br/>Word; sentence; synthesis mainnet
-          launched, TEXT token released.
-        </li>
-        <li style="padding-bottom: 20px; padding-left: 20px;">September - October, 2022<br/>Sentence contest platform
-          development.
-        </li>
-        <li style="padding-bottom: 20px; padding-left: 20px;">November, 2022<br/>Sentence contest platform launched.
-        </li>
-        <li style="padding-bottom: 20px; padding-left: 20px;">December, 2022<br/>ubsequent funding and feature updates.
-        </li>
-        <li style="padding-bottom: 20px; padding-left: 20px;">2023 <br/>Development and Construction of Text Metaverse.
-        </li>
+          <li style="padding-bottom: 20px; padding-left: 20px;">April - June, 2022<br/>Development of word; sentence; synthesis; disassembly.
+          </li>
+          <li style="padding-bottom: 20px; padding-left: 20px;">July, 2022<br/>Rinkeby Testnet<br/>
+            Giveaway(ENS Gift)
+          </li>
+          <li style="padding-bottom: 20px; padding-left: 20px;">August, 2022<br/>Mirror crowdfunding(5% of total TEXT).<br/>
+            Word; sentence; synthesis mainnet launched.<br/>
+            TEXT token released.<br/>
+            TEXT staking.
+          </li>
+          <li style="padding-bottom: 20px; padding-left: 20px;">September - October, 2022<br/>Sentence contest platform development.
+          </li>
+          <li style="padding-bottom: 20px; padding-left: 20px;">November, 2022<br/>Sentence contest platform launched.
+          </li>
+          <li style="padding-bottom: 20px; padding-left: 20px;">December, 2022<br/>Ubsequent funding and feature updates.
+          </li>
+          <li style="padding-bottom: 20px; padding-left: 20px;">2023<br/>Development and Construction of Text Metaverse.
+          </li>
       </ul>
       <p><span style="color: #fff;padding-bottom: 15px;padding-top:60px;display:block;font-size: 24px;line-height: 1;">Contract (Rinkeby)</span>
       </p>
@@ -323,24 +323,23 @@
       <p><span style="color: #fff;padding-bottom: 10px;padding-top:60px;display:block;font-size: 20px;line-height: 1;">Roadmap</span>
       </p>
       <ul>
-        <li style="padding-bottom: 20px; padding-left: 20px;">April - June, 2022<br/>Development of word; sentence;
-          synthesis; disassembly.
+        <li style="padding-bottom: 20px; padding-left: 20px;">April - June, 2022<br/>Development of word; sentence; synthesis; disassembly.
         </li>
-        <li style="padding-bottom: 20px; padding-left: 20px;">July, 2022<br/>Testnet, mirror crowdfunding(5% of total
-          TEXT).
+        <li style="padding-bottom: 20px; padding-left: 20px;">July, 2022<br/>Rinkeby Testnet<br/>
+          Giveaway(ENS Gift)
         </li>
-        <li style="padding-bottom: 20px; padding-left: 20px;">August, 2022<br/>Word; sentence; synthesis mainnet
-          launched, TEXT token released.
+        <li style="padding-bottom: 20px; padding-left: 20px;">August, 2022<br/>Mirror crowdfunding(5% of total TEXT).<br/>
+          Word; sentence; synthesis mainnet launched.<br/>
+          TEXT token released.<br/>
+          TEXT staking.
         </li>
-        <li style="padding-bottom: 20px; padding-left: 20px;">September - October, 2022<br/>Sentence contest platform
-          development.
+        <li style="padding-bottom: 20px; padding-left: 20px;">September - October, 2022<br/>Sentence contest platform development.
         </li>
         <li style="padding-bottom: 20px; padding-left: 20px;">November, 2022<br/>Sentence contest platform launched.
         </li>
-        <li style="padding-bottom: 20px; padding-left: 20px;">December, 2022<br/>Subsequent funding and feature
-          updates.
+        <li style="padding-bottom: 20px; padding-left: 20px;">December, 2022<br/>Ubsequent funding and feature updates.
         </li>
-        <li style="padding-bottom: 20px; padding-left: 20px;">2023 <br/>Development and Construction of Text Metaverse.
+        <li style="padding-bottom: 20px; padding-left: 20px;">2023<br/>Development and Construction of Text Metaverse.
         </li>
       </ul>
       <p><span style="color: #fff;padding-bottom: 10px;padding-top:60px;display:block;font-size: 20px;line-height: 1;">Contract (Rinkeby)</span>

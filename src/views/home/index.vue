@@ -803,8 +803,22 @@ export default {
         sessionStorage.removeItem('address')
       });
       ethereum.on("accountsChanged", function (accounts) {
-        sessionStorage.setItem('address', accounts[0]);
-        that.address = sessionStorage.getItem('address');
+        if(accounts.length==0){
+          that.address =null ;
+          that.isConnect = false
+          sessionStorage.removeItem('isConnect')
+          sessionStorage.removeItem('address')
+        }else {
+          sessionStorage.setItem('address', accounts[0]);
+          that.address = sessionStorage.getItem('address');
+        }
+      });
+      ethereum.on('disconnect', (error) => {
+        that.address =null ;
+        that.isConnect = false
+        sessionStorage.setItem('isConnect', false)
+        sessionStorage.removeItem('isConnect')
+        sessionStorage.removeItem('address')
       });
     }
     ,

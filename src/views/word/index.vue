@@ -53,7 +53,7 @@ export default {
   },
   data() {
     return {
-      word:['I','You','He','She','It','Am','Are','Were','Is','Was','Be','Do','Does','Did','Have','Has','Shall','Should','Will','Would','Can','Could','May','Might'],
+      word:['i','you','he','she','it','am','are','were','is','was','be','do','does','did','have','has','shall','should','will','would','can','could','may','might'],
       reload: false,
       isConnect: sessionStorage.getItem('isConnect') || false,
       refuse: false,
@@ -89,8 +89,9 @@ export default {
     }
     this.$watch('newRoleNameEn', debounce((newQuery) => {
       var that = this;
-      // console.log(!this.word.includes(this.newRoleNameEn),this.newRoleNameEn)
-      if(!this.word.indexOf(this.newRoleNameEn)){
+      console.log(!this.word.includes(this.newRoleNameEn),this.newRoleNameEn)
+      if(!this.word.includes(this.newRoleNameEn.toLowerCase())){
+        console.log('enter')
         that.queryTokenID().then((res) => {
           console.log(res)
           if (this.newRoleNameEn.length > 0 && res == 0) {
@@ -102,6 +103,7 @@ export default {
           }
         });
       }else {
+        console.log('else')
         that.isClaim = false;
         that.result = true;
       }
@@ -366,14 +368,16 @@ export default {
         }
       });
       ethereum.on("networkChanged", function (accounts) {
-        sessionStorage.setItem('isConnect', false)
-        if (sessionStorage.getItem('isConnect') == 'true') {
-          that.isConnect = true;
-        } else {
-          that.isConnect = false
-        }
-        sessionStorage.removeItem('isConnect')
-        sessionStorage.removeItem('address')
+
+        // sessionStorage.setItem('isConnect', false)
+        // if (sessionStorage.getItem('isConnect') == 'true') {
+        //   that.isConnect = true;
+        // } else {
+        //   that.isConnect = false
+        // }
+        // sessionStorage.removeItem('isConnect')
+        // sessionStorage.removeItem('address')
+        // console.log('networkChanged')
       });
     }
     ,

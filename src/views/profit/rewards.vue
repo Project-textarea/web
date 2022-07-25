@@ -110,9 +110,16 @@ export default {
       }
       ethereum.on("accountsChanged", function (accounts) {
         // console.log('accountsChanged')
-        sessionStorage.setItem('address', accounts[0]);
-        that.address = sessionStorage.getItem('address');
         // that.getDataList(that.address)
+        if(accounts.length==0){
+          that.address =null ;
+          that.isConnect = false
+          sessionStorage.removeItem('isConnect')
+          sessionStorage.removeItem('address')
+        }else {
+          sessionStorage.setItem('address', accounts[0]);
+          that.address = sessionStorage.getItem('address');
+        }
       });
       initContracts().provider.on("chainChanged", (chainId) => {
         that.address = '';

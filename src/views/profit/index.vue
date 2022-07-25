@@ -233,8 +233,14 @@ export default {
               });
               setTimeout(() => {
                 that.wordList = [];
-                that.getDataList(that.address)
+                that.getDataList(that.address);
+                // availablePrice>0
               }, 500)
+              // setTimeout(() => {
+              //   that.wordList = [];
+              //   that.getDataList(that.address);
+              //   // availablePrice>0
+              // }, 6000)
             });
       } catch (err) {
         // console.log(err)
@@ -298,9 +304,16 @@ export default {
         return;
       }
       ethereum.on("accountsChanged", function (accounts) {
-        sessionStorage.setItem('address', accounts[0]);
-        that.address = sessionStorage.getItem('address');
-        that.getDataList(that.address)
+        if(accounts.length==0){
+          that.address =null ;
+          that.isConnect = false
+          sessionStorage.removeItem('isConnect')
+          sessionStorage.removeItem('address')
+        }else {
+          sessionStorage.setItem('address', accounts[0]);
+          that.address = sessionStorage.getItem('address');
+          that.getDataList(that.address)
+        }
       });
       ethereum.on("networkChanged", function (accounts) {
         sessionStorage.setItem('isConnect', false)
