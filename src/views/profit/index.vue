@@ -36,17 +36,17 @@
           </li>
         </ul>
       </div>
-      <div class="content profit-bottom" v-if="wordList.length> 0&&start" :class="[availablePrice>0?'':'on']">
+      <div class="content profit-bottom" v-if="wordList.length> 0&&start&&totalPrice>0" :class="[availablePrice>0?'':'on']">
         <div class="textarea-bottom">
           <ul class="list list-total">
             <li>
-              <div class="wrapper-flex-row top" style="color: #415360">
+              <div class="wrapper-flex-row top" style="color: #ffffff">
                 <div class="name">Total</div>
                 <div class="price">{{ totalPrice |NumFormat }} ETH</div>
               </div>
             </li>
             <li>
-              <div class="wrapper-flex-row top" style="color: #415360">
+              <div class="wrapper-flex-row top" style="color: #ffffff">
                 <div class="name">Withdrawn</div>
                 <div class="price">{{ WithdrawnPrice|NumFormat }} ETH</div>
               </div>
@@ -61,7 +61,10 @@
           <div @click="withdraw()" :class="[availablePrice>0?'':'on','connect Withdraw',refused?'refused':'']"
                style="width: 100%;box-sizing: border-box">
             <span
-                style="width: 100%;box-sizing: border-box;color: #404040;background: #2de370;text-align: center;font-size: 18px;padding: 15px 0;display: block;">Withdraw</span>
+                style="width: 100%;box-sizing: border-box;color: #404040;background: #2de370;text-align: center;font-size: 18px;padding: 15px 0;display: block;">
+
+              {{availablePrice>0?'Withdraw':'No profit can be withdrawn'}}
+            </span>
           </div>
         </div>
       </div>

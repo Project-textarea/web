@@ -14,7 +14,7 @@
   cursor: pointer;
 }
 
-:root .ani_dot { 
+:root .ani_dot {
   display: inline-block;
   width: 1.5em;
   vertical-align: bottom;
@@ -122,7 +122,11 @@
 
     &.on {
       filter: grayscale(100%);
-      opacity: 0;
+      //opacity: 0;
+      span{
+        background: #68553a!important;
+        color: #000000!important;
+      }
     }
 
     img {
@@ -880,7 +884,8 @@
   width: 90%;
   background: #121619;
   z-index: 100;
-  &.on{
+
+  &.on {
     bottom: calc(12vh + 5px);
   }
 }
@@ -1105,7 +1110,8 @@
             padding: 20px 0 15px;
 
             .t1 {
-              width: calc(50% - 4px);
+              width: 50%;
+              //width: calc(50% - 4px);
               font-size: 20px;
               color: #ffffff;
               display: inline-block;
@@ -1114,10 +1120,73 @@
 
             .t2 {
               vertical-align: top;
-              width: calc(50% - 4px);
-              text-align: center;
+              width: 50%;
+              //width: calc(50% - 4px);
+              text-align: right;
               font-size: 18px;
-              color: #4d5358;
+              color: #6d8d96;
+
+              &:hover {
+                .symbol .symbol-container {
+                  display: block;
+                }
+              }
+
+              .symbol {
+                display: inline-block;
+                position: relative;
+                margin-top: 3px;
+                vertical-align: top;
+                //cursor: pointer;
+                .icon{
+                  display: inline-block;
+                  vertical-align: top;
+                  margin-top: 2px;
+                }
+                .symbol-container {
+                  display: none;
+                  position: absolute;
+                  left: calc(50% - 214px);
+                  bottom: 170%;
+
+                  .symbol-wrapper {
+                    position: relative;
+                    padding: 10px;
+                    background: #000000;
+                    //width: 320px;
+                    width: 240px;
+                    box-sizing: border-box;
+                    //border-radius: 3px;
+                    color: #ffffff;
+                    font-size: 15px;
+                    line-height: 1.4;
+                    text-align: left;
+
+                    .table {
+                      margin: 20px 0;
+                      border-bottom: 1px solid #999999;
+
+                      > div {
+                        padding: 6px 0;
+                        border-top: 1px solid #999999;
+                      }
+                    }
+
+                    &:after {
+                      content: '';
+                      position: absolute;
+                      bottom: -8px;
+                      left: calc(50% - 3px);
+                      z-index: 10;
+                      width: 0;
+                      height: 0;
+                      border-style: solid;
+                      border-width: 10px 10px 0 10px;
+                      border-color: #000000 transparent transparent transparent;
+                    }
+                  }
+                }
+              }
             }
           }
 
@@ -1313,6 +1382,7 @@
     color: #8b0000 !important;
   }
 }
+
 .Withdraw {
   margin: 20px 0 0;
 }
@@ -1348,14 +1418,52 @@
 }
 
 @media screen and (max-width: 980px) {
-  .container{
+  .staking-section2 .desc .item .bottom-desc .content .title-sum .t2 .symbol .symbol-container {
+    left: auto;
+    right: -39px;
+  }
+
+  .staking-section2 .desc .item .bottom-desc .content .title-sum .t2 .symbol .symbol-container .symbol-wrapper:after {
+    left: auto;
+    right: 100px;
+  }
+
+  .staking-section2 .desc .item .bottom-desc .content .title-sum .t2:hover {
+    .symbol .symbol-container {
+      display: none;
+    }
+  }
+  .staking-section2 .desc .item .bottom-desc .content .title-sum .t2.active {
+    .symbol .symbol-container {
+      display: block;
+    }
+  }
+  //.staking-section2 .desc .item .bottom-desc .content .title-sum .t2.active .bg{
+  //  display: block;
+  //}
+  //.staking-section2 .desc .item .bottom-desc .content .title-sum .t2 .bg {
+  //  content: '';
+  //  display: none;
+  //  position: fixed;
+  //  top: 0;
+  //  left: 0;
+  //  width: 100%;
+  //  height: 100vh;
+  //  display: block;
+  //  background: #000000;
+  //  opacity: 0;
+  //  z-index: 1;
+  //}
+
+  .container {
     min-height: calc(100vh + 1px);
   }
- 
-  :root .ani_dot { 
+
+  :root .ani_dot {
     font-size: 20px;
     margin-left: 0;
   }
+
   .pop-loading-picture {
     min-height: 320px;
   }
