@@ -13,14 +13,14 @@
         <a href="https://twitter.com/TextareaProject" target="_blank">
           <img src="@/assets/images/icon-f1.png" width="35"/>
         </a>
-        <a @click="coming">
-          <img src="@/assets/images/icon-f2.png" width="35"/>
+        <a href="https://discord.com/invite/DVv3PFznQm" target="_blank">
+          <img src="@/assets/images/discord.svg" width="35"/>
+        </a>
+        <a href="https://textarea.gitbook.io/documentation/" target="_blank">
+          <img src="@/assets/images/icon-gitbook.png" width="37"/>
         </a>
         <a href="https://github.com/Project-textarea" target="_blank">
           <img src="@/assets/images/icon-f3.png" width="35"/>
-        </a>
-        <a>
-          <img src="@/assets/images/icon-f4.png" width="35"/>
         </a>
       </div>
     </footer>

@@ -8,6 +8,7 @@
             ref="mark"
             v-model="newRoleNameEn" spellcheck="false"
             @focus="inputClick()"
+            @blur="blurClick()"
             @input="inputs()"
         />
       </div>
@@ -439,6 +440,15 @@ export default {
     inputClick() {
       this.focus = false;
       this.$refs['mark'].focus()
+    },
+    blurClick(){
+      if (!this.utilsEvent.isMobile()) {
+        if(this.newRoleNameEn.length==0){
+          this.focus = false;
+          this.$refs['mark'].focus()
+        }
+      }
+
     }
     ,
 

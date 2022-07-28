@@ -4,6 +4,7 @@ import Routes from './routes.js';
 
 const router = new Router({
     mode: 'history',
+    // mode: 'hash',
     routes: [].concat(Routes)
 });
 Vue.routerGo = router;

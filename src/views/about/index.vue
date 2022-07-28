@@ -375,14 +375,14 @@
         <a href="https://twitter.com/TextareaProject" target="_blank">
           <img src="@/assets/images/icon-f11.png" width="35"/>
         </a>
-        <a @click="coming()">
+        <a href="https://discord.com/invite/DVv3PFznQm" target="_blank">
           <img src="@/assets/images/icon-f21.png" width="35"/>
+        </a>
+        <a href="https://textarea.gitbook.io/documentation/" target="_blank">
+          <img src="@/assets/images/icon-f51.png" width="35"/>
         </a>
         <a href="https://github.com/Project-textarea" target="_blank">
           <img src="@/assets/images/icon-f31.png" width="35"/>
-        </a>
-        <a>
-          <img src="@/assets/images/icon-f41.png" width="35"/>
         </a>
       </div>
     </div>
