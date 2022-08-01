@@ -3,8 +3,8 @@ import Router from 'vue-router'
 import Routes from './routes.js';
 
 const router = new Router({
-    mode: 'history',
-    // mode: 'hash',
+    // mode: 'history',
+    mode: 'hash',
     routes: [].concat(Routes)
 });
 Vue.routerGo = router;

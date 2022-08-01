@@ -18,12 +18,12 @@ const routes = [
         }
     },
     {
-        path: '/rewards',
-        name: 'rewards',
+        path: '/wordrewards',
+        name: 'wordrewards',
         component: () => import('@/views/profit/index.vue'),
         meta: {
-            title: 'rewards',
-            key: 'rewards'
+            title: 'wordrewards',
+            key: 'wordrewards'
         }
     },
     {
