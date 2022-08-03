@@ -20,7 +20,6 @@
 
 <script>
 import BigNumber from "bignumber.js";
-import {Message} from 'element-ui';
 import headerBar from './components/headerBar'
 import footerBar from '../../components/footerBar'
 import {address, initContracts} from "../../utils/common";
@@ -95,11 +94,11 @@ export default {
       }).catch((reason) => {
         console.log('', reason)
         if (reason.code == -32002) {
-          that.$message({
-            message: reason.message,
-            type: 'warning'
-          });
-
+          // that.$message({
+          //   message: reason.message,
+          //   type: 'warning'
+          // });
+          that.$message.warning(reason.message);
         }
       })
     },

@@ -81,7 +81,6 @@
 import {debounce} from '../../utils/utils'
 import {address, initContracts} from "../../utils/common";
 import footerBar from '../../components/footerBar'
-
 export default {
   components: {
     footerBar
@@ -582,11 +581,14 @@ export default {
       let trueChainId = await this.utilsEvent.checkChainId();
       // console.log('trueChainId',trueChainId)
       if (!trueChainId) {
-        that.$message({
-          message: 'Please switch to the correct network',
-          type: 'warning'
-        });
-        return
+        if (this.utilsEvent.isMobile()) {
+          that.$message.warning('Please switch to the correct network');
+        }
+        let changeID =await this.utilsEvent.changeChainId();
+        console.log('changeID',changeID)
+        if(!changeID){
+          return
+        }
       }
       // 1 GET metaMask Accounts
       let address = sessionStorage.getItem('address')
@@ -612,26 +614,35 @@ export default {
       // 5 send
       if (typeof address != 'undefined') {
         that.refuse = true
+        that.result = false;
         try {
           await initContracts().sentenceContract.methods.mint(trim, color).send({
             from: address,
             value: price
           }).then(function (receipt) {
+            that.result = true;
+            that.$refs['sentence'].focus()
             console.log("receipt=>", receipt)
             // 6 Success
-            that.$message({
-              message: 'success',
-              type: 'success'
-            });
+            // that.$message({
+            //   message: 'success',
+            //   type: 'success'
+            // });
+
+            that.$message.success('success');
             that.sentence = ''
             that.refuse = false;
           });
         } catch (err) {
+          that.result = true;
+          that.$refs['sentence'].focus()
           console.log("err=>", err)
-          that.$message({
-            message: err.message,
-            type: 'warning'
-          });
+          // that.$message({
+          //   message: err.message,
+          //   type: 'warning'
+          // });
+
+          that.$message.warning(err.message);
           that.refuse = false;
         }
       } else {
@@ -681,22 +692,30 @@ export default {
         if (this.utilsEvent.isMobile()) {
           this.wallet()
         } else {
-          this.$message({
-            message: 'Please use web3 browser',
-            type: 'warning'
-          });
+          // this.$message({
+          //   message: 'No blockchain wallet installed',
+          //   type: 'warning'
+          // });
 
+          that.$message.warning('No blockchain wallet installed');
         }
         return;
       }
       let trueChainId = await this.utilsEvent.checkChainId();
       // console.log('trueChainId',trueChainId)
       if (!trueChainId) {
-        that.$message({
-          message: 'Please switch to the correct network',
-          type: 'warning'
-        });
-        return
+        // that.$message({
+        //   message: 'Please switch to the correct network',
+        //   type: 'warning'
+        // });
+        if (this.utilsEvent.isMobile()) {
+          that.$message.warning('Please switch to the correct network');
+        }
+        let changeID =await this.utilsEvent.changeChainId();
+        // console.log('changeID',changeID)
+        if(!changeID){
+          return
+        }
       }
       ethereum.request({
         method: 'eth_requestAccounts'
@@ -707,11 +726,11 @@ export default {
       }).catch((reason) => {
         // console.log('', reason)
         if (reason.code == -32002) {
-          that.$message({
-            message: reason.message,
-            type: 'warning'
-          });
-
+          // that.$message({
+          //   message: reason.message,
+          //   type: 'warning'
+          // });
+          that.$message.warning(reason.message);
         }
       })
     },
@@ -723,10 +742,11 @@ export default {
           this.utilsEvent.checkChainId().then(res => {
             console.log(res)
             if (!res) {
-              that.$message({
-                message: 'Please switch to the correct network',
-                type: 'warning'
-              });
+              // that.$message({
+              //   message: 'Please switch to the correct network',
+              //   type: 'warning'
+              // });
+              // that.$message.warning('Please switch to the correct network');
               initContracts().provider.disconnect()
             } else {
               // S OTHER
@@ -749,10 +769,11 @@ export default {
           this.utilsEvent.checkChainId().then(res => {
             // console.log(res)
             if (!res) {
-              that.$message({
-                message: 'Please switch to the correct network',
-                type: 'warning'
-              });
+              // that.$message({
+              //   message: 'Please switch to the correct network',
+              //   type: 'warning'
+              // });
+              that.$message.warning('Please switch to the correct network');
               initContracts().provider.disconnect()
             } else {
               // S OTHER

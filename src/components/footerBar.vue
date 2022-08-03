@@ -3,10 +3,10 @@
     <!--    PC footer Container-->
     <footer class="footer pc-footer">
       <div class="text-list">
-        <a @click="to('/word')" :class="$route.path=='/word'||$route.path=='/'?'on':''">Word</a>
+        <a @click="to('/')" :class="$route.path=='/word'||$route.path=='/'?'on':''">Word</a>
         <a @click="to('/sentence')" :class="$route.path=='/sentence'?'on':''">Sentence</a>
         <a @click="to('/synthesis')"
-           :class="$route.path=='/rewards'||$route.path=='/staking'||$route.path=='/dismantling'||$route.path=='/synthesis'?'on':''">Textarea</a>
+           :class="$route.path=='/wordrewards'||$route.path=='/staking'||$route.path=='/dismantling'||$route.path=='/synthesis'?'on':''">Textarea</a>
         <a @click="to('/about')" :class="$route.path=='/about'?'on':''">About</a>
       </div>
       <div class="footer-icon" onselectstart="return false">
@@ -26,7 +26,7 @@
     </footer>
     <!--    iphone and IPad footer Container-->
     <footer class="footer wrapper-flex-row iphone-footer" :class="changeClass?'changeClass':''">
-      <a  @click="to('/word')" :class="$route.path=='/word'||$route.path=='/'?'on':''">
+      <a  @click="to('/')" :class="$route.path=='/word'||$route.path=='/'?'on':''">
         <img src="@/assets/images/f1.svg" width="100%"/>
         <img src="@/assets/images/f1-on.svg" width="100%"/>
       </a>
@@ -34,7 +34,7 @@
         <img src="@/assets/images/f2.svg" width="100%"/>
         <img src="@/assets/images/f2-on.svg" width="100%"/></a>
       <a @click="to('/synthesis')"
-                   :class="$route.path=='/rewards'||$route.path=='/staking'||$route.path=='/dismantling'||$route.path=='/synthesis'?'on':''">
+                   :class="$route.path=='/wordrewards'||$route.path=='/staking'||$route.path=='/dismantling'||$route.path=='/synthesis'?'on':''">
         <img src="@/assets/images/f3.svg" width="100%"/>
         <img src="@/assets/images/f3-on.svg" width="100%"/></a>
       <a @click="to('/about')" :class="$route.path=='/about'?'on':''">
@@ -52,6 +52,13 @@ export default {
   },
   methods: {
     to(url) {
+      console.log(url=='/'&&this.$route.path!='/word'&&this.$route.path!='/')
+      if(url=='/'){
+        if(this.$route.path!='/word'&&this.$route.path!='/'){
+          this.$router.push({path:url})
+        }
+        return
+      }
       if (!this.$route.path.includes(url)&&url!='/') {
         this.$router.push({path:url})
       }else{
@@ -140,12 +147,13 @@ export default {
     justify-content: space-between;
     position: fixed;
     bottom: 0;
-    left: 0;
+    left: 50%;
+    transform: translate(-50%,0);
     width: 100%;
     background: #000000;
     text-align: center;
-    border-top: 0.5px solid #282828;
     z-index: 11;
+    max-width: 375px;
     a {
       width: 25%;
       padding: 12px 0;
@@ -171,6 +179,13 @@ export default {
         display: block;
       }
     }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .iphone-footer{
+    border-top: 0.5px solid #282828;
+    max-width: 100%;
   }
 }
 </style>

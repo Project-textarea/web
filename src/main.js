@@ -22,7 +22,13 @@ router.beforeEach((to, from, next) => {
     next()
 
 });
+// import Vconsole from 'vconsole';
+// let vConsole = new Vconsole();
+// export default vConsole;
+
 import utilsEvent from './utils/utils'
 
-Vue.prototype.utilsEvent = utilsEvent;
+Vue.prototype.utilsEvent = utilsEvent;//main.js
+import {newMessage} from  './utils/resetMessage.js';
+Vue.prototype.$message = newMessage;
 

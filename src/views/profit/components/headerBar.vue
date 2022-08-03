@@ -3,14 +3,14 @@
     <div class="textarea-nav wrapper-flex-row">
       <router-link to="/synthesis" class="f1" :class="$route.path=='/synthesis'?'on':''" >Synthesis</router-link>
       <router-link to="/dismantling" class="f1" :class="$route.path=='/dismantling'?'on':''">Dismantling</router-link>
-      <div :class="$route.path=='/rewards'||$route.path=='/staking'?'on':''" class="f1 f2">
-        <a class="el-dropdown-link" :class="$route.path=='/rewards'||$route.path=='/staking'?'on':''" @click="menu=!menu">
+      <div :class="$route.path=='/wordrewards'||$route.path=='/staking'?'on':''" class="f1 f2">
+        <a class="el-dropdown-link" :class="$route.path=='/wordrewards'||$route.path=='/staking'?'on':''" @click="menu=!menu">
           Rewards
           <!--        {{menu}}-->
         </a>
         <ul class="menu" v-if="menu">
           <li @click="menu=false"><router-link to="/staking" >Staking</router-link></li>
-          <li @click="menu=false"><router-link to="/rewards"  >Word Rewards</router-link></li>
+          <li @click="menu=false"><router-link to="/wordrewards"  >Word Rewards</router-link></li>
         </ul>
       </div>
       <div class="bg" v-if="menu" @click="menu=false"></div>

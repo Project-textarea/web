@@ -6,7 +6,7 @@
         <img src="@/assets/images/icon-green.svg" width="12"/>Connect Wallet
       </div>
       <!--textarea-nav-->
-      <div class="content" v-if="isConnect" >
+      <div class="content" v-if="isConnect">
         <header-Bar></header-Bar>
       </div>
       <div v-if="isConnect" class="synthesis-container">
@@ -99,7 +99,8 @@
           <p v-if="isAddress&&list.length==0&&number==-1&&!needTokenId&&is721" class="info">Loading contract<span
               class="ani_dot">...</span>
           </p>
-          <p v-if="isAddress&&list.length>=0&&number>=0&&is721" class="info">You own {{ number }} {{ number<=1?'NFT':'NFTs' }} of this
+          <p v-if="isAddress&&list.length>=0&&number>=0&&is721" class="info">You own {{ number }}
+            {{ number <= 1 ? 'NFT' : 'NFTs' }} of this
             contract</p>
           <p v-if="!is721" class="info">Not an ERC-721 contract</p>
         </div>
@@ -140,8 +141,10 @@
           <div v-if="ethInput==''&&number<=0&&PopShowNFTList&&firstItem==1" class="show-other-list">
             <ul class="white-list">
               <li class="wrapper-flex-row" v-for="(item,index) in whitePageList" :key="index"
-                  @click="ethInput=item.contract">
+                  @click="ethInput=item.tokenID">
                 <divn class="name ones">
+
+                  <img :src="item.icon" width="20" />
                   {{ item.name }}
                 </divn>
                 <divn class="reward">
@@ -169,8 +172,9 @@
           <div v-if="ethInput==''&&number<=0&&!needTokedShowNft" class="show-other-list">
             <ul class="white-list">
               <li class="wrapper-flex-row" v-for="(item,index) in whitePageList" :key="index"
-                  @click="ethInput=item.contract">
+                  @click="ethInput=item.tokenID">
                 <divn class="name ones">
+                  <img :src="item.icon" width="20" />
                   {{ item.name }}
                 </divn>
                 <divn class="reward">
@@ -194,7 +198,8 @@
         </div>
         <div class=" waring waring1">
           <p v-if="sentenceList.length==0&&result!=0" class="info">Loading contract<span class="ani_dot">...</span></p>
-          <p v-else class="info">You own {{ sentenceList.length }} {{ sentenceList.length<=1?'NFT':'NFTs' }} of this contract</p>
+          <p v-else class="info">You own {{ sentenceList.length }} {{ sentenceList.length <= 1 ? 'NFT' : 'NFTs' }} of
+            this contract</p>
         </div>
         <div :class="['show-other-list show-other-list11',show?'on':'']">
           <a v-for="(item,index) in sentenceList" :index="index" class="item" @click="selectedNft(item,index)">
@@ -232,7 +237,7 @@ async function generalImage(sentence, sentenceColor, creator) {
   let r = sentenceColor >> 16 & 0xff;
   let g = sentenceColor >> 8 & 0xff;
   let b = sentenceColor & 0xff;
-  let height = (line - 1) * 30 + 40 + 40; 
+  let height = (line - 1) * 30 + 40 + 40;
   let width = 360;
   let svg = '<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMiDYMid meet" viewBox="0 0,360,' + height + '">';
   svg += '<style>@font-face {font-family: "Unifont";font-style: normal;font-weight: normal;src: url(data:font/woff;base64,';
@@ -258,7 +263,6 @@ async function generalImage(sentence, sentenceColor, creator) {
 }
 
 import BigNumber from "bignumber.js";
-import {Message} from 'element-ui';
 import headerBar from './components/headerBar'
 import footerBar from '../../components/footerBar'
 import {address, initContracts} from "../../utils/common";
@@ -359,7 +363,7 @@ export default {
   },
   created() {
     if (this.utilsEvent.isMobile()) {
-      if(!window.ethereum && this.isConnect){
+      if (!window.ethereum && this.isConnect) {
         this.wallet()
       }
     } else {
@@ -386,7 +390,7 @@ export default {
     this.checkMetamask();
   },
   methods: {
-    touchin(index) { 
+    touchin(index) {
       let that = this;
       this.$nextTick(() => {
         that.touchinData = index;
@@ -397,7 +401,7 @@ export default {
       return false;
     },
     // Restrict input fields to only numbers and points to simulate click events (quickly lift after click)
-    clickhandle(index) { 
+    clickhandle(index) {
       let that = this;
       clearTimeout(this.Loop);
       if (that.Loop !== 0) {
@@ -413,7 +417,7 @@ export default {
       return false;
     },
     // Hold down the event and wait for the specified event to trigger
-    touchin1(index) { 
+    touchin1(index) {
       let that = this;
       this.Loop1 = setTimeout(function () {
         that.Loop1 = 0;
@@ -421,7 +425,7 @@ export default {
       return false;
     },
     // Restrict input fields to only numbers and points to simulate click events (quickly lift after click)
-    clickhandle1(index) { 
+    clickhandle1(index) {
       let that = this;
       clearTimeout(this.Loop);
       if (that.Loop1 !== 0) {
@@ -792,19 +796,22 @@ export default {
           that.sentenceList = [];
 
           if (that.utilsEvent.isMobile()) {
-            that.$message({
-              message: 'Synthesis succeeded!',
-              type: 'success'
-            });
+            // that.$message({
+            //   message: 'Synthesis succeeded!',
+            //   type: 'success'
+            // });
+            that.$message.success('Synthesis succeeded!');
           }
         })
 
       } catch (err) {
         that.PopShow = false;
-        that.$message({
-          message: err.message,
-          type: 'warning'
-        });
+        // that.$message({
+        //   message: err.message,
+        //   type: 'warning'
+        // });
+
+        that.$message.warning(err.message);
         loading.close();
       }
     },
@@ -883,10 +890,12 @@ export default {
         }
       } catch (err) {
         console.log(err)
-        that.$message({
-          message: err.message,
-          type: 'warning'
-        });
+        // that.$message({
+        //   message: err.message,
+        //   type: 'warning'
+        // });
+
+        that.$message.warning(err.message);
         loading.close();
       }
 
@@ -916,10 +925,12 @@ export default {
         }
       } catch (err) {
         console.log(err)
-        that.$message({
-          message: err.message,
-          type: 'warning'
-        });
+        // that.$message({
+        //   message: err.message,
+        //   type: 'warning'
+        // });
+
+        that.$message.warning(err.message);
         loading.close();
       }
 
@@ -971,10 +982,13 @@ export default {
         if (this.utilsEvent.isMobile()) {
           this.wallet()
         } else {
-          this.$message({
-            message: 'Please use web3 browser',
-            type: 'warning'
-          });
+          // this.$message({
+          //   message: 'No blockchain wallet installed',
+          //   type: 'warning'
+          // });
+
+
+          this.$message.warning('No blockchain wallet installed');
 
         }
         return;
@@ -982,10 +996,10 @@ export default {
       let trueChainId = await this.utilsEvent.checkChainId();
       // console.log('trueChainId',trueChainId)
       if (!trueChainId) {
-        that.$message({
-          message: 'Please switch to the correct network',
-          type: 'warning'
-        });
+        if (this.utilsEvent.isMobile()) {
+          that.$message.warning('Please switch to the correct network');
+        }
+        let changeID = await this.utilsEvent.changeChainId();
         return
       }
       ethereum.request({method: 'eth_requestAccounts'})
@@ -999,11 +1013,11 @@ export default {
             that.checkApprovedOther()
           }).catch((reason) => {
         if (reason.code == -32002) {
-          this.$message({
-            message: reason.message,
-            type: 'warning'
-          });
-
+          // this.$message({
+          //   message: reason.message,
+          //   type: 'warning'
+          // });
+          that.$message.warning(reason.message);
         }
       })
       // console.log('finally:', 11)
@@ -1070,12 +1084,12 @@ export default {
       }
       ethereum.on("accountsChanged", function (accounts) {
         // console.log('change METAMASK', accounts)
-        if(accounts.length==0){
-          that.address =null ;
+        if (accounts.length == 0) {
+          that.address = null;
           that.isConnect = false
           sessionStorage.removeItem('isConnect')
           sessionStorage.removeItem('address')
-        }else {
+        } else {
           sessionStorage.setItem('address', accounts[0]);
           that.address = sessionStorage.getItem('address');
           that.checkApprovedSentence()
@@ -1097,7 +1111,7 @@ export default {
 
       ethereum.on('disconnect', (error) => {
         console.log('disconnect')
-        that.address =null ;
+        that.address = null;
         that.isConnect = false
         sessionStorage.removeItem('isConnect')
         sessionStorage.removeItem('address')
@@ -1128,7 +1142,8 @@ export default {
     position: fixed;
     bottom: 0;
   }
-  .container{
+
+  .container {
     padding-bottom: 66px;
   }
 }

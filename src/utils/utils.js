@@ -1,4 +1,5 @@
 import {initContracts} from "./common";
+import Web3 from "web3";
 
 
 export default {
@@ -37,6 +38,21 @@ export default {
                 return false;
             }
         }
+    },
+    async changeChainId() {
+        // alert('start', Web3.utils.numberToHex(4))
+        ethereum.request({
+            method: 'wallet_switchEthereumChain',
+            params: [
+                {
+                    chainId: Web3.utils.numberToHex(4)
+                }
+            ]
+        }).then(res => {
+            // alert(JSON.stringify(res))
+        }).catch(err => {
+            // alert(JSON.stringify(err))
+        });
     },
 }
 

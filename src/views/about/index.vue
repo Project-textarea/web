@@ -42,7 +42,7 @@
       <p><span style="color: #fff;padding-bottom: 15px;padding-top:60px;display:block;font-size: 24px;line-height: 1;">Economy</span>
       </p>
       <ul>
-        <li style="padding-bottom: 20px; padding-left: 20px;">The fee for each word to be claimed is 0.15 ETH.</li>
+        <li style="padding-bottom: 20px; padding-left: 20px;">The mint of the word will be free.</li>
         <li style="padding-bottom: 20px; padding-left: 20px;">The cost per sentence depends on the number of words.
           Every new word added to the sentence will increase the generation cost by 0.01 ETH (words that are reused will
           not incur additional costs). The 0.01 ETH will be distributed to the word owner as a reward.
@@ -129,8 +129,7 @@
       <p><span style="color: #fff;padding-bottom: 15px;padding-top:60px;display:block;font-size: 24px;line-height: 1;">Team</span>
       </p>
       <ul>
-        <li style="padding-bottom: 20px; padding-left: 20px;">We are a web3 team with four developers, including a
-          product manager, a contract development engineer, a front-end development engineer, and a ui designer. We are
+        <li style="padding-bottom: 20px; padding-left: 20px;">We are a WEB3 team with four developers, including a Product Manager, a Contract Development Engineer, a Front-end Development Engineer, and a Marketing Manager.  We are
           full time developing textarea project and will remain anonymous.
         </li>
       </ul>
@@ -228,7 +227,7 @@
       <p><span style="color: #fff;padding-bottom: 10px;padding-top:60px;display:block;font-size: 20px;line-height: 1;">Economy</span>
       </p>
       <ul>
-        <li style="padding-bottom: 20px; padding-left: 20px;">The fee for each word to be claimed is 0.15 ETH.</li>
+        <li style="padding-bottom: 20px; padding-left: 20px;">The mint of the word will be free.</li>
         <li style="padding-bottom: 20px; padding-left: 20px;">The cost per sentence depends on the number of words.
           Every new word added to the sentence will increase the generation cost by 0.01 ETH (words that are reused will
           not incur additional costs). The 0.01 ETH will be distributed to the word owner as a reward.
@@ -315,8 +314,7 @@
       <p><span style="color: #fff;padding-bottom: 10px;padding-top:60px;display:block;font-size: 20px;line-height: 1;">Team</span>
       </p>
       <ul>
-        <li style="padding-bottom: 20px; padding-left: 20px;">We are a web3 team with four developers, including a
-          product manager, a contract development engineer, a front-end development engineer, and a ui designer. We are
+        <li style="padding-bottom: 20px; padding-left: 20px;">We are a WEB3 team with four developers, including a Product Manager, a Contract Development Engineer, a Front-end Development Engineer, and a Marketing Manager.  We are
           full time developing textarea project and will remain anonymous.
         </li>
       </ul>
@@ -391,7 +389,6 @@
 </template>
 
 <script>
-import {Message} from 'element-ui';
 import footerBar from '../../components/footerBar'
 
 export default {
@@ -421,10 +418,11 @@ export default {
   },
   methods: {
     coming() {
-      this.$message({
-        message: 'The Sentence Contest is in development...',
-        type: 'warning'
-      });
+      // this.$message({
+      //   message: 'The Sentence Contest is in development...',
+      //   type: 'warning'
+      // });
+      this.$message.warning('The Sentence Contest is in development...');
     }
   }
 };

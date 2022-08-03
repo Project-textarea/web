@@ -36,7 +36,8 @@
           </li>
         </ul>
       </div>
-      <div class="content profit-bottom" v-if="wordList.length> 0&&start&&totalPrice>0" :class="[availablePrice>0?'':'on']">
+      <div class="content profit-bottom" v-if="wordList.length> 0&&start&&totalPrice>0"
+           :class="[availablePrice>0?'':'on']">
         <div class="textarea-bottom">
           <ul class="list list-total">
             <li>
@@ -63,7 +64,7 @@
             <span
                 style="width: 100%;box-sizing: border-box;color: #404040;background: #2de370;text-align: center;font-size: 18px;padding: 15px 0;display: block;">
 
-              {{availablePrice>0?'Withdraw':'No profit can be withdrawn'}}
+              {{ availablePrice > 0 ? 'Withdraw' : 'No profit can be withdrawn' }}
             </span>
           </div>
         </div>
@@ -75,7 +76,6 @@
 
 <script>
 import BigNumber from "bignumber.js";
-import {Message} from 'element-ui';
 import headerBar from './components/headerBar'
 import footerBar from '../../components/footerBar'
 import {address, initContracts} from "../../utils/common";
@@ -216,10 +216,10 @@ export default {
         let trueChainId = await this.utilsEvent.checkChainId();
         // console.log('trueChainId',trueChainId)
         if (!trueChainId) {
-          that.$message({
-            message: 'Please switch to the correct network',
-            type: 'warning'
-          });
+          if (this.utilsEvent.isMobile()) {
+            that.$message.warning('Please switch to the correct network');
+          }
+          let changeID = await this.utilsEvent.changeChainId();
           return
         }
         that.refused = true;
@@ -230,10 +230,11 @@ export default {
               // 5 Success
               // console.log(receipt)
               that.refused = false;
-              that.$message({
-                message: 'success',
-                type: 'success'
-              });
+              // that.$message({
+              //   message: 'success',
+              //   type: 'success'
+              // });
+              that.$message.success('success');
               setTimeout(() => {
                 that.wordList = [];
                 that.getDataList(that.address);
@@ -248,10 +249,12 @@ export default {
       } catch (err) {
         // console.log(err)
         that.refused = false;
-        that.$message({
-          message: err.message,
-          type: 'warning'
-        });
+        // that.$message({
+        //   message: err.message,
+        //   type: 'warning'
+        // });
+
+        that.$message.warning(err.message);
       }
     },
     /**
@@ -265,21 +268,22 @@ export default {
         if (this.utilsEvent.isMobile()) {
           this.wallet()
         } else {
-          this.$message({
-            message: 'Please use web3 browser',
-            type: 'warning'
-          });
+          // this.$message({
+          //   message: 'No blockchain wallet installed',
+          //   type: 'warning'
+          // });
 
+          this.$message.warning('No blockchain wallet installed');
         }
         return;
       }
       let trueChainId = await this.utilsEvent.checkChainId();
       // console.log('trueChainId',trueChainId)
       if (!trueChainId) {
-        this.$message({
-          message: 'Please switch to the correct network',
-          type: 'warning'
-        });
+        if (this.utilsEvent.isMobile()) {
+          that.$message.warning('Please switch to the correct network');
+        }
+        let changeID = await this.utilsEvent.changeChainId();
         return
       }
       ethereum.request({
@@ -293,11 +297,12 @@ export default {
       }).catch((reason) => {
         console.log('', reason)
         if (reason.code == -32002) {
-          this.$message({
-            message: reason.message,
-            type: 'warning'
-          });
+          // this.$message({
+          //   message: reason.message,
+          //   type: 'warning'
+          // });
 
+          this.$message.warning(reason.message);
         }
       })
     },
@@ -307,12 +312,12 @@ export default {
         return;
       }
       ethereum.on("accountsChanged", function (accounts) {
-        if(accounts.length==0){
-          that.address =null ;
+        if (accounts.length == 0) {
+          that.address = null;
           that.isConnect = false
           sessionStorage.removeItem('isConnect')
           sessionStorage.removeItem('address')
-        }else {
+        } else {
           sessionStorage.setItem('address', accounts[0]);
           that.address = sessionStorage.getItem('address');
           that.getDataList(that.address)

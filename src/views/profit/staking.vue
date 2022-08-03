@@ -49,8 +49,9 @@
                   <ul class="content" v-if="showStake">
                     <li>
                       <div class="input wrapper-flex-row">
-                        <input type="text" v-model="stakeText" @input="stakeInput" @focus="searchAllowance" :disabled="allowance==1" :style="allowance==1?'cursor: no-drop':''"/>
-                        <a class="max"  v-if="allowance!=1" @click="maxClick(1)" >Max</a>
+                        <input type="text" v-model="stakeText" @input="stakeInput" @focus="searchAllowance"
+                               :disabled="allowance==1" :style="allowance==1?'cursor: no-drop':''"/>
+                        <a class="max" v-if="allowance!=1" @click="maxClick(1)">Max</a>
                         <div v-if="stakeText==0||stakeText==''||stakeText==null">
                           <a class="stake" v-if="allowance==1" @click="approved" :class="refused?'refused':''"
                              style="background: #2de370;color: #000000;margin-left: 5px;padding: 0 13px;width: 100%;box-sizing: border-box;">Approved</a>
@@ -90,17 +91,25 @@
                         </dd>
                         <div class="title-sum">
                           <a class="t1 font18" style="cursor: default">TEXT</a>
-                          <a class="t2 font16" style="cursor: default" :class="mouseenter?'active':''" @click="mouseenter=!mouseenter" >
-<!--                            <div class="bg" @click="mouseenter=false"></div>-->
+                          <a class="t2 font16" style="cursor: default" :class="mouseenter?'active':''"
+                             @click="mouseenter=!mouseenter">
+                            <!--                            <div class="bg" @click="mouseenter=false"></div>-->
                             Compounding
                             <div class="symbol">
                               <div class="symbol-container">
                                 <div class="symbol-wrapper">
-                                  The TEXT that has been earned will be automatically calculated into the principal to help you earn more profits.
+                                  The TEXT that has been earned will be automatically calculated into the principal to
+                                  help you earn more profits.
                                 </div>
                               </div>
-                              <svg t="1658739261865" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1528" width="16" height="16"><path d="M455.408941 794.925176h84.87153v-84.871529h-84.87153v84.871529z m130.168471-265.938823c-42.465882 28.310588-62.253176 62.223059-62.253177 99.026823v25.449412H455.378824v-31.111529c-2.831059-50.928941 22.648471-96.195765 67.915294-130.168471 50.898824-36.743529 76.378353-73.547294 70.716235-107.52-5.662118-50.898824-33.942588-79.209412-87.702588-82.04047-62.253176-2.831059-101.857882 33.972706-115.983059 110.351058l-76.408471-19.817411c22.648471-113.152 93.364706-166.912 206.546824-164.080941 99.026824 5.662118 149.955765 53.76 161.249882 147.124705 2.861176 56.591059-28.280471 107.52-96.165647 152.786824zM512 59.301647C263.017412 59.331765 59.331765 263.017412 59.331765 512c0 249.012706 203.685647 452.728471 452.668235 452.728471S964.668235 760.982588 964.668235 512 761.012706 59.331765 512 59.331765z m0 961.957647C231.905882 1021.289412 2.710588 792.094118 2.710588 512 2.710588 231.905882 231.905882 2.710588 512 2.710588S1021.289412 231.905882 1021.289412 512 792.094118 1021.289412 512 1021.289412z" fill="#ffffff" p-id="1529"></path></svg>
-                            </div></a>
+                              <svg t="1658739261865" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                   xmlns="http://www.w3.org/2000/svg" p-id="1528" width="16" height="16">
+                                <path
+                                    d="M455.408941 794.925176h84.87153v-84.871529h-84.87153v84.871529z m130.168471-265.938823c-42.465882 28.310588-62.253176 62.223059-62.253177 99.026823v25.449412H455.378824v-31.111529c-2.831059-50.928941 22.648471-96.195765 67.915294-130.168471 50.898824-36.743529 76.378353-73.547294 70.716235-107.52-5.662118-50.898824-33.942588-79.209412-87.702588-82.04047-62.253176-2.831059-101.857882 33.972706-115.983059 110.351058l-76.408471-19.817411c22.648471-113.152 93.364706-166.912 206.546824-164.080941 99.026824 5.662118 149.955765 53.76 161.249882 147.124705 2.861176 56.591059-28.280471 107.52-96.165647 152.786824zM512 59.301647C263.017412 59.331765 59.331765 263.017412 59.331765 512c0 249.012706 203.685647 452.728471 452.668235 452.728471S964.668235 760.982588 964.668235 512 761.012706 59.331765 512 59.331765z m0 961.957647C231.905882 1021.289412 2.710588 792.094118 2.710588 512 2.710588 231.905882 231.905882 2.710588 512 2.710588S1021.289412 231.905882 1021.289412 512 792.094118 1021.289412 512 1021.289412z"
+                                    fill="#ffffff" p-id="1529"></path>
+                              </svg>
+                            </div>
+                          </a>
                         </div>
                         <dd class="wrapper-flex-row font16">
                           <div class="tips">Earned to date:</div>
@@ -152,15 +161,22 @@
                         </dd>
                         <div class="title-sum">
                           <a class="t1 font18" style="cursor: default">TEXT</a>
-                          <a class="t2 font16" style="cursor: default" :class="mouseenter?'active':''" @click="mouseenter=!mouseenter" >Compounding
-                          <div class="symbol">
-                            <div class="symbol-container">
-                              <div class="symbol-wrapper">
-                                The TEXT that has been earned will be automatically calculated into the principal to help you earn more profits.
+                          <a class="t2 font16" style="cursor: default" :class="mouseenter?'active':''"
+                             @click="mouseenter=!mouseenter">Compounding
+                            <div class="symbol">
+                              <div class="symbol-container">
+                                <div class="symbol-wrapper">
+                                  The TEXT that has been earned will be automatically calculated into the principal to
+                                  help you earn more profits.
+                                </div>
                               </div>
+                              <svg t="1658739261865" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                   xmlns="http://www.w3.org/2000/svg" p-id="1528" width="16" height="16">
+                                <path
+                                    d="M455.408941 794.925176h84.87153v-84.871529h-84.87153v84.871529z m130.168471-265.938823c-42.465882 28.310588-62.253176 62.223059-62.253177 99.026823v25.449412H455.378824v-31.111529c-2.831059-50.928941 22.648471-96.195765 67.915294-130.168471 50.898824-36.743529 76.378353-73.547294 70.716235-107.52-5.662118-50.898824-33.942588-79.209412-87.702588-82.04047-62.253176-2.831059-101.857882 33.972706-115.983059 110.351058l-76.408471-19.817411c22.648471-113.152 93.364706-166.912 206.546824-164.080941 99.026824 5.662118 149.955765 53.76 161.249882 147.124705 2.861176 56.591059-28.280471 107.52-96.165647 152.786824zM512 59.301647C263.017412 59.331765 59.331765 263.017412 59.331765 512c0 249.012706 203.685647 452.728471 452.668235 452.728471S964.668235 760.982588 964.668235 512 761.012706 59.331765 512 59.331765z m0 961.957647C231.905882 1021.289412 2.710588 792.094118 2.710588 512 2.710588 231.905882 231.905882 2.710588 512 2.710588S1021.289412 231.905882 1021.289412 512 792.094118 1021.289412 512 1021.289412z"
+                                    fill="#ffffff" p-id="1529"></path>
+                              </svg>
                             </div>
-                            <svg t="1658739261865" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1528" width="16" height="16"><path d="M455.408941 794.925176h84.87153v-84.871529h-84.87153v84.871529z m130.168471-265.938823c-42.465882 28.310588-62.253176 62.223059-62.253177 99.026823v25.449412H455.378824v-31.111529c-2.831059-50.928941 22.648471-96.195765 67.915294-130.168471 50.898824-36.743529 76.378353-73.547294 70.716235-107.52-5.662118-50.898824-33.942588-79.209412-87.702588-82.04047-62.253176-2.831059-101.857882 33.972706-115.983059 110.351058l-76.408471-19.817411c22.648471-113.152 93.364706-166.912 206.546824-164.080941 99.026824 5.662118 149.955765 53.76 161.249882 147.124705 2.861176 56.591059-28.280471 107.52-96.165647 152.786824zM512 59.301647C263.017412 59.331765 59.331765 263.017412 59.331765 512c0 249.012706 203.685647 452.728471 452.668235 452.728471S964.668235 760.982588 964.668235 512 761.012706 59.331765 512 59.331765z m0 961.957647C231.905882 1021.289412 2.710588 792.094118 2.710588 512 2.710588 231.905882 231.905882 2.710588 512 2.710588S1021.289412 231.905882 1021.289412 512 792.094118 1021.289412 512 1021.289412z" fill="#ffffff" p-id="1529"></path></svg>
-                          </div>
                           </a>
                         </div>
                         <dd class="wrapper-flex-row font16">
@@ -235,7 +251,6 @@
 <script>
 import $ from 'jquery'
 import BigNumber from "bignumber.js";
-import {Message} from 'element-ui';
 import headerBar from './components/headerBar'
 import footerBar from '../../components/footerBar'
 import {address, initContracts} from "../../utils/common";
@@ -248,7 +263,7 @@ export default {
   },
   data() {
     return {
-      mouseenter:false,
+      mouseenter: false,
       Earndate: '--',
       refused: false,
       refused1: false,
@@ -305,7 +320,7 @@ export default {
       // =2 indicates that data has decimal places
       if (value2Array.length === 2) {
         floatPart = value2Array[1].toString() // Get the decimal part
-        if (floatPart.length === 1) { 
+        if (floatPart.length === 1) {
           return intPartFormat + '.' + floatPart + '0'
         } else {
           return intPartFormat + '.' + floatPart
@@ -392,8 +407,8 @@ export default {
     },
     stakeText() {
       var that = this;
-      if(this.allowance==1){
-        this.stakeText='';
+      if (this.allowance == 1) {
+        this.stakeText = '';
       }
       if (that.stakeText == 0 || that.stakeText == '' || that.stakeText == null) {
       } else {
@@ -404,7 +419,7 @@ export default {
   },
   created() {
     if (this.utilsEvent.isMobile()) {
-      if(!window.ethereum && this.isConnect){
+      if (!window.ethereum && this.isConnect) {
         this.wallet()
       }
     } else {
@@ -487,17 +502,17 @@ export default {
       let trueChainId = await this.utilsEvent.checkChainId();
       // console.log('trueChainId',trueChainId)
       if (!trueChainId) {
-        that.$message({
-          message: 'Please switch to the correct network',
-          type: 'warning'
-        });
+        if (this.utilsEvent.isMobile()) {
+          that.$message.warning('Please switch to the correct network');
+        }
+        let changeID = await this.utilsEvent.changeChainId();
         return
       }
       let allowance = await initContracts().textareaContract.methods.allowance(that.address, address.mintSharingSystem).call();
       console.log('allowance', allowance)
       if (allowance == 0) {
         that.allowance = 1;
-        that.stakeText='';
+        that.stakeText = '';
       } else {
         that.allowance = 2;
       }
@@ -507,10 +522,10 @@ export default {
       let trueChainId = await this.utilsEvent.checkChainId();
       // console.log('trueChainId',trueChainId)
       if (!trueChainId) {
-        that.$message({
-          message: 'Please switch to the correct network',
-          type: 'warning'
-        });
+        if (this.utilsEvent.isMobile()) {
+          that.$message.warning('Please switch to the correct network');
+        }
+        let changeID = await this.utilsEvent.changeChainId();
         return
       }
       that.refused = true;
@@ -534,10 +549,10 @@ export default {
         let trueChainId = await this.utilsEvent.checkChainId();
         // console.log('trueChainId',trueChainId)
         if (!trueChainId) {
-          that.$message({
-            message: 'Please switch to the correct network',
-            type: 'warning'
-          });
+          if (this.utilsEvent.isMobile()) {
+            that.$message.warning('Please switch to the correct network');
+          }
+          let changeID = await this.utilsEvent.changeChainId();
           return
         }
         if (that.WethPrice == 0 || that.WethPrice == '' || that.WethPrice == null) {
@@ -549,20 +564,22 @@ export default {
             from: that.address
           }).then(() => {
             that.refused2 = false;
-            that.$message({
-              message: 'success',
-              type: 'success'
-            });
+            // that.$message({
+            //   message: 'success',
+            //   type: 'success'
+            // });
+            that.$message.success('success');
             that.getData();
           });
         }
       } catch (err) {
         that.refused2 = false;
         console.warn(err)
-        that.$message({
-          message: err.message,
-          type: 'warning'
-        });
+        // that.$message({
+        //   message: err.message,
+        //   type: 'warning'
+        // });
+        that.$message.warning(err.message);
       }
     },
     /**
@@ -604,10 +621,11 @@ export default {
         if (that.stakeText == 0 || that.stakeText == '' || that.stakeText == null) {
           return
         } else if (that.stakeText < 1) {
-          that.$message({
-            message: 'Cannot be less than 1 TEXT',
-            type: 'warning'
-          });
+          // that.$message({
+          //   message: 'Cannot be less than 1 TEXT',
+          //   type: 'warning'
+          // });
+          that.$message.warning('Cannot be less than 1 TEXT');
           return
         } else {
           let number = new BigNumber(that.stakeText).times(1e18).toFixed(0);
@@ -624,20 +642,22 @@ export default {
             console.log("receipt=>", receipt)
             // 6 Success
             that.stakeText = '';
-            that.$message({
-              message: 'success',
-              type: 'success'
-            });
+            // that.$message({
+            //   message: 'success',
+            //   type: 'success'
+            // });
+            that.$message.success('success');
             that.getData();
           });
         }
       } catch (err) {
         that.refused = false;
         console.log("err=>", err)
-        that.$message({
-          message: err.message,
-          type: 'warning'
-        });
+        // that.$message({
+        //   message: err.message,
+        //   type: 'warning'
+        // });
+        that.$message.warning(err.message);
       }
     },
     /**
@@ -676,10 +696,12 @@ export default {
             console.log("receipt=>", receipt)
             // 6 Success
             that.unstakeText = '';
-            that.$message({
-              message: 'success',
-              type: 'success'
-            });
+            // that.$message({
+            //   message: 'success',
+            //   type: 'success'
+            // });
+
+            that.$message.success('success');
             that.refused1 = false;
             that.getData();
           });
@@ -687,10 +709,11 @@ export default {
       } catch (err) {
         that.refused1 = false;
         console.log("err=>", err)
-        that.$message({
-          message: err.message,
-          type: 'warning'
-        });
+        // that.$message({
+        //   message: err.message,
+        //   type: 'warning'
+        // });
+        that.$message.warning(err.message);
       }
     },
     async getData(add) {
@@ -750,21 +773,22 @@ export default {
         if (this.utilsEvent.isMobile()) {
           this.wallet()
         } else {
-          this.$message({
-            message: 'Please use web3 browser',
-            type: 'warning'
-          });
+          // this.$message({
+          //   message: 'No blockchain wallet installed',
+          //   type: 'warning'
+          // });
 
+          this.$message.warning('No blockchain wallet installed');
         }
         return;
       }
       let trueChainId = await this.utilsEvent.checkChainId();
       // console.log('trueChainId',trueChainId)
       if (!trueChainId) {
-        that.$message({
-          message: 'Please switch to the correct network',
-          type: 'warning'
-        });
+        if (this.utilsEvent.isMobile()) {
+          that.$message.warning('Please switch to the correct network');
+        }
+        let changeID = await this.utilsEvent.changeChainId();
         return
       }
       ethereum.request({
@@ -778,11 +802,11 @@ export default {
       }).catch((reason) => {
         console.log('', reason)
         if (reason.code == -32002) {
-          that.$message({
-            message: reason.message,
-            type: 'warning'
-          });
-
+          // that.$message({
+          //   message: reason.message,
+          //   type: 'warning'
+          // });
+          that.$message.warning(reason.message);
         }
       })
     },
@@ -909,13 +933,13 @@ export default {
         return;
       }
       ethereum.on("accountsChanged", function (accounts) {
-        if(accounts.length==0){
-          that.address =null ;
+        if (accounts.length == 0) {
+          that.address = null;
           that.isConnect = false;
           that.clearData();
           sessionStorage.removeItem('isConnect')
           sessionStorage.removeItem('address')
-        }else {
+        } else {
           sessionStorage.setItem('address', accounts[0]);
           this.address = accounts[0];
           console.log("this.address", this.address)

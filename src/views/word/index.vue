@@ -54,7 +54,7 @@ export default {
   },
   data() {
     return {
-      word:['i','you','he','she','it','am','are','were','is','was','be','do','does','did','have','has','shall','should','will','would','can','could','may','might'],
+      word: ['i', 'you', 'he', 'she', 'it', 'am', 'are', 'were', 'is', 'was', 'be', 'do', 'does', 'did', 'have', 'has', 'shall', 'should', 'will', 'would', 'can', 'could', 'may', 'might'],
       reload: false,
       isConnect: sessionStorage.getItem('isConnect') || false,
       refuse: false,
@@ -90,8 +90,8 @@ export default {
     }
     this.$watch('newRoleNameEn', debounce((newQuery) => {
       var that = this;
-      console.log(!this.word.includes(this.newRoleNameEn),this.newRoleNameEn)
-      if(!this.word.includes(this.newRoleNameEn.toLowerCase())){
+      console.log(!this.word.includes(this.newRoleNameEn), this.newRoleNameEn)
+      if (!this.word.includes(this.newRoleNameEn.toLowerCase())) {
         console.log('enter')
         that.queryTokenID().then((res) => {
           console.log(res)
@@ -103,7 +103,7 @@ export default {
             that.result = true;
           }
         });
-      }else {
+      } else {
         console.log('else')
         that.isClaim = false;
         that.result = true;
@@ -172,10 +172,11 @@ export default {
         this.$nextTick(() => {
           this.utilsEvent.checkChainId().then(res => {
             if (!res) {
-              that.$message({
-                message: 'Please switch to the correct network',
-                type: 'warning'
-              });
+              // that.$message({
+              //   message: 'Please switch to the correct network',
+              //   type: 'warning'
+              // });
+              that.$message.warning('Please switch to the correct network');
               initContracts().provider.disconnect()
             } else {
               // S OTHER
@@ -198,10 +199,12 @@ export default {
           this.utilsEvent.checkChainId().then(res => {
             // console.log(res)
             if (!res) {
-              that.$message({
-                message: 'Please switch to the correct network',
-                type: 'warning'
-              });
+              // that.$message({
+              //   message: 'Please switch to the correct network',
+              //   type: 'warning'
+              // });
+
+              that.$message.warning('Please switch to the correct network');
               initContracts().provider.disconnect()
             } else {
               // S OTHER
@@ -266,10 +269,10 @@ export default {
 
       trueChainId = await this.utilsEvent.checkChainId();
       if (!trueChainId) {
-        that.$message({
-          message: 'Please switch to the correct network',
-          type: 'warning'
-        });
+        if (this.utilsEvent.isMobile()) {
+          that.$message.warning('Please switch to the correct network');
+        }
+        let changeID = await this.utilsEvent.changeChainId();
         return
       }
 
@@ -280,32 +283,40 @@ export default {
         return
       }
       // 2 GET word's Price
-      let price = await initContracts().wordContract.methods.mintPrice().call()
+      let price = await initContracts().wordContract.methods.mintPrice().call();
       // console.log("price=>", price, address, typeof address == 'undefined');
       // 3 check metamask accounts
       if (typeof address != 'undefined') {
         // 4 try send contract
         try {
+          that.result = false;
           await initContracts().wordContract.methods.mint(that.newRoleNameEn).send({
             from: address,
             value: price
           })
               .then(function (receipt) {
                 // 5 Success
-                that.$message({
-                  message: 'success',
-                  type: 'success'
-                });
+                // that.$message({
+                //   message: 'success',
+                //   type: 'success'
+                // });
+
+                that.$message.success('success');
+                that.result = true;
+                that.$refs['mark'].focus()
                 that.refuse = false;
                 that.newRoleNameEn = '';
               })
         } catch (err) {
           console.log(err)
           that.refuse = false;
-          that.$message({
-            message: err.message,
-            type: 'warning'
-          });
+          that.result = true;
+          // that.$message({
+          //   message: err.message,
+          //   type: 'warning'
+          // });
+          that.$refs['mark'].focus()
+          that.$message.warning(err.message);
         }
       } else {
         this.connetMetamask();
@@ -360,10 +371,10 @@ export default {
         return;
       }
       ethereum.on("accountsChanged", function (accounts) {
-        if(accounts.length==0){
-          that.address =null ;
+        if (accounts.length == 0) {
+          that.address = null;
           sessionStorage.removeItem('address')
-        }else {
+        } else {
           sessionStorage.setItem('address', accounts[0]);
           that.address = sessionStorage.getItem('address');
         }
@@ -394,21 +405,27 @@ export default {
         if (this.utilsEvent.isMobile()) {
           this.wallet()
         } else {
-          this.$message({
-            message: 'Please use web3 browser',
-            type: 'warning'
-          });
+          // this.$message({
+          //   message: 'No blockchain wallet installed',
+          //   type: 'warning'
+          // });
 
+          that.$message.warning('No blockchain wallet installed');
         }
         return;
       }
       let trueChainId = await this.utilsEvent.checkChainId();
       // console.log('trueChainId',trueChainId)
       if (!trueChainId) {
-        that.$message({
-          message: 'Please switch to the correct network',
-          type: 'warning'
-        });
+        // that.$message({
+        //   message: 'Please switch to the correct network',
+        //   type: 'warning'
+        // });
+
+        if (this.utilsEvent.isMobile()) {
+          that.$message.warning('Please switch to the correct network');
+        }
+        let changeID = await this.utilsEvent.changeChainId();
         return
       }
       ethereum.request({
@@ -422,10 +439,12 @@ export default {
       }).catch((reason) => {
         console.log('reason', reason)
         if (reason.code == -32002) {
-          this.$message({
-            message: reason.message,
-            type: 'warning'
-          });
+          // this.$message({
+          //   message: reason.message,
+          //   type: 'warning'
+          // });
+
+          that.$message.warning(reason.message);
 
         }
       })
@@ -441,9 +460,9 @@ export default {
       this.focus = false;
       this.$refs['mark'].focus()
     },
-    blurClick(){
+    blurClick() {
       if (!this.utilsEvent.isMobile()) {
-        if(this.newRoleNameEn.length==0){
+        if (this.newRoleNameEn.length == 0) {
           this.focus = false;
           this.$refs['mark'].focus()
         }

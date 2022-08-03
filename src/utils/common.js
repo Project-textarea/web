@@ -34,7 +34,8 @@ export const address = {
     tokenDistributor: '0x63c47263B70033319036c2ae0EEF5358f1eE4419',
 }
 export const provider = new WalletConnectProvider({
-    infuraId: "7fcec0ff3f8b4a98aca48a90bb7dc48c",
+    // infuraId: "7fcec0ff3f8b4a98aca48a90bb7dc48c",
+    infuraId: "facf32e45b24446ebe93e6d022e0870b",
 });
 let web3 = null;
 if (window.ethereum) {

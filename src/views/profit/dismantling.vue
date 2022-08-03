@@ -47,7 +47,6 @@
 
 <script>
 import BigNumber from "bignumber.js";
-import {Message} from 'element-ui';
 import footerBar from '../../components/footerBar'
 import headerBar from './components/headerBar'
 import {address, initContracts} from "../../utils/common";
@@ -69,7 +68,7 @@ export default {
       address: null || sessionStorage.getItem('address'),
       isConnect: sessionStorage.getItem('isConnect') || false,
       timeout: false,
-      allowance: 0,
+      allowance: 1,
       walletPrice: 0,
     }
   },
@@ -115,15 +114,15 @@ export default {
         let trueChainId = await this.utilsEvent.checkChainId();
         // console.log('trueChainId',trueChainId)
         if (!trueChainId) {
-          that.$message({
-            message: 'Please switch to the correct network',
-            type: 'warning'
-          });
+
+          if (this.utilsEvent.isMobile()) {
+            that.$message.warning('Please switch to the correct network');
+          }
+          let changeID =await this.utilsEvent.changeChainId();
+          // that.$message.warning('Please switch to the correct network');
           return
         }
         let walletPrice = await initContracts().textareaContract.methods.balanceOf(that.address).call();
-        // let UserInfo = await initContracts().mergeContract.methods.mergeInfos(that.address).call();
-        // console.log('UserInfo', UserInfo);
         that.walletPrice = Number(new BigNumber(walletPrice).div(1e18).toFixed(6))
         console.log('that.walletPrice', that.walletPrice)
       } catch (e) {
@@ -132,7 +131,7 @@ export default {
     async searchAllowance() {
       var that = this;
       console.log('searchAllowance');
-      that.allowance = 0;
+      that.allowance = 1;
       let allowance = await initContracts().textareaContract.methods.allowance(that.address, address.merge).call();
       // console.log('allowance', allowance)
       if (allowance == 0) {
@@ -156,10 +155,14 @@ export default {
     async selectedNft(item, index) {
       var that = this;
       if (item.forReward > this.walletPrice) {
-        that.$message({
-          message: 'Insufficient amount of TEXT',
-          type: 'warning'
-        });
+        // that.$message({
+        //   message: 'Insufficient amount of TEXT',
+        //   type: 'warning'
+        // });
+
+        that.$message.warning('Insufficient amount of TEXT');
+
+
         return;
       }
       that.nft = item;
@@ -176,10 +179,12 @@ export default {
         await obj.mergeContract.methods.unbind(that.nft.tokenID).send({
           from: that.address
         }).then(function (receipt) {
-          that.$message({
-            message: 'Unbinding succeeded!',
-            type: 'success'
-          });
+          // that.$message({
+          //   message: 'Unbinding succeeded!',
+          //   type: 'success'
+          // });
+
+          that.$message.success('Unbinding succeeded!');
           that.refused = -1;
           setTimeout(() => {
             that.showList = [];
@@ -190,10 +195,11 @@ export default {
 
       } catch (err) {
         that.refused = -1;
-        that.$message({
-          message: err.message,
-          type: 'warning'
-        });
+        // that.$message({
+        //   message: err.message,
+        //   type: 'warning'
+        // });
+        that.$message.warning(err.message);
         loading.close();
         // console.log(err)
       }
@@ -274,10 +280,12 @@ export default {
         if (this.utilsEvent.isMobile()) {
           this.wallet()
         } else {
-          this.$message({
-            message: 'Please use web3 browser',
-            type: 'warning'
-          });
+          // this.$message({
+          //   message: 'No blockchain wallet installed',
+          //   type: 'warning'
+          // });
+
+          this.$message.warning(  'No blockchain wallet installed');
 
         }
         return;
@@ -285,10 +293,14 @@ export default {
       let trueChainId = await this.utilsEvent.checkChainId();
       // console.log('trueChainId',trueChainId)
       if (!trueChainId) {
-        this.$message({
-          message: 'Please switch to the correct network',
-          type: 'warning'
-        });
+        // this.$message({
+        //   message: 'Please switch to the correct network',
+        //   type: 'warning'
+        // });
+        if (this.utilsEvent.isMobile()) {
+          that.$message.warning('Please switch to the correct network');
+        }
+        let changeID =await this.utilsEvent.changeChainId();
         return
       }
       ethereum.request({
@@ -305,11 +317,12 @@ export default {
       }).catch((reason) => {
         console.log('', reason)
         if (reason.code == -32002) {
-          this.$message({
-            message: reason.message,
-            type: 'warning'
-          });
+          // this.$message({
+          //   message: reason.message,
+          //   type: 'warning'
+          // });
 
+          this.$message.warning(reason.message);
         }
       })
     },
@@ -362,10 +375,11 @@ export default {
       }).catch((reason) => {
         console.log('', reason)
         if (reason.code == -32002) {
-          this.$message({
-            message: reason.message,
-            type: 'warning'
-          });
+          // this.$message({
+          //   message: reason.message,
+          //   type: 'warning'
+          // });
+          this.$message.warning(reason.message);
         }
       });
       initContracts().provider.on("accountsChanged", (accounts) => {
