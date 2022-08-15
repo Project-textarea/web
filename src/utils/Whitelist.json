@@ -37,12 +37,6 @@
       "level": "1"
     },
     {
-      "name": "The Sandbox",
-      "tokenID": "0x5cc5b05a8a13e3fbdb0bb9fccd98d38e50f90c38",
-      "icon": "https://lh3.googleusercontent.com/SXH8tW1siikB80rwCRnjm1a5xM_MwTg9Xl9Db6mioIk9HIlDM09pVoSR7GKJgS6ulSUpgW9BDtMk_ePX_NKgO9A=s60",
-      "level": "1"
-    },
-    {
       "name": "Moonbirds",
       "tokenID": "0x23581767a106ae21c074b2276d25e5c3e136a68b",
       "icon": "https://lh3.googleusercontent.com/H-eyNE1MwL5ohL-tCfn_Xa1Sl9M9B4612tLYeUlQubzt4ewhr4huJIR5OLuyO3Z5PpJFSwdm7rq-TikAh7f5eUw338A2cy6HRH75=s120",
@@ -585,19 +579,25 @@
     {
       "name": "treeverse-plots",
       "tokenID": "0x1b829b926a14634d36625e60165c0770c09d02b2",
-      "icon": "https://lh3.googleusercontent.com/8g0poMCQ5J9SZHMsBrefrXbwzFmOQ-333l5OtbqqPW8TSGO9Stm2Rhd7kwHKsKIZPLxDjzISeeDTZ1H35t7GswPRoIfzTnNPsLs7rxw=s120",
+      "icon": "https://lh3.googleusercontent.com/qwYkDJYhJQsMO-cyIVqjbHLlvevSlGC21RUq6McPXTHeJ1WTXUjCdP7aHTaSSS3hbyLW3QkVUadO2a7DpNVnrkyuTHG71WwwuKiEsg=s168",
       "level": "1"
     },
     {
       "name": "Pixelmon - Generation 1",
       "tokenID": "0x32973908faee0bf825a343000fe412ebe56f802a",
-      "icon": "https://lh3.googleusercontent.com/TyPJi06xkDXOWeK4wYBCIskRcSJpmtVfVcJbuxNXDVsC39IC_Ls5taMlxpZPYMoUtlPH7YkQ4my1nwUGDIB5C01r97TPlYhkolk-TA=s120",
+      "icon": "https://lh3.googleusercontent.com/hqDSpTYhSy--C3l8Q0yKGGCs1h9DSwlqvNGK3WXh3QS-ce-VYWOfo-F8unGDdGhhJA6v8Vqw6mYyMr8MPecCEYHVAKXh4tn24THo=s168",
       "level": "1"
     },
     {
       "name": "HYPEBEARSCLUB.OFFICIAL",
       "tokenID": "0x14e0a1f310e2b7e321c91f58847e98b8c802f6ef",
-      "icon": "https://lh3.googleusercontent.com/fZ4I5g6uU4pufmceGnEd8Z60OBlHwYWI2gJKnrlaJCO7WW1c1kUyL17oh7culsru9Yy6sbiMT8x9-DY2uQMZhDDW8aSyddEOsV6dpCE=s120",
+      "icon": "https://lh3.googleusercontent.com/W-yC19rF98Tb8tK-k0GTa-OgIyPGE7rzIZL_rtMcw_VYXVLI8J6dQZLvKz5y_FmYQu56GTMBncC7MUXWNNluLU1EXAzoNZxb3_hW=s168",
+      "level": "1"
+    },
+    {
+      "name": "Galaxy-Eggs",
+      "tokenID": "0xa08126f5e1ed91a635987071e6ff5eb2aeb67c48",
+      "icon": "https://lh3.googleusercontent.com/Wh65MMSs8_7Wz2RD8f_e2AUiyK9vGMOZ-2Za--wGAmzInoZYsqg6Gtj1XKUo4U9UWeerngBIQ82Zx6j5XReyd3jTJ39VuxtrmcIQpA=s168",
       "level": "1"
     }
   ]

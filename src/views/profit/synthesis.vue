@@ -143,8 +143,7 @@
               <li class="wrapper-flex-row" v-for="(item,index) in whitePageList" :key="index"
                   @click="ethInput=item.tokenID">
                 <divn class="name ones">
-
-                  <img :src="item.icon" width="20" />
+                  <img :src="item.icon" width="20" height="20"  />
                   {{ item.name }}
                 </divn>
                 <divn class="reward">
@@ -174,7 +173,7 @@
               <li class="wrapper-flex-row" v-for="(item,index) in whitePageList" :key="index"
                   @click="ethInput=item.tokenID">
                 <divn class="name ones">
-                  <img :src="item.icon" width="20" />
+                  <img :src="item.icon" width="20" height="20" />
                   {{ item.name }}
                 </divn>
                 <divn class="reward">
