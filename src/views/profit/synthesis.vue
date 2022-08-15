@@ -444,10 +444,10 @@ export default {
     ReplaceIPFS(url) {
       // console.error(url)
       if (url.indexOf("ipfs") != -1 && url.indexOf("http") == -1) {
-        url = "https://ipfs.infura.io/ipfs/" + url.split("//")[1];
+        url = "https://ipfs.io/ipfs/" + url.split("//")[1];
       }
       if (url.indexOf("https://ikzttp.mypinata.cloud/ipfs/") != -1) {
-        url = "https://ipfs.infura.io/ipfs/" + url.split("cloud/ipfs/")[1];
+        url = "https://ipfs.io/ipfs/" + url.split("cloud/ipfs/")[1];
       }
       return url;
     },
