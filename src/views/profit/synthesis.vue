@@ -143,7 +143,7 @@
               <li class="wrapper-flex-row" v-for="(item,index) in whitePageList" :key="index"
                   @click="ethInput=item.tokenID">
                 <divn class="name ones">
-                  <img :src="item.icon" width="20" height="20"  />
+                  <img :src="item.icon" width="20" height="20"/>
                   {{ item.name }}
                 </divn>
                 <divn class="reward">
@@ -173,7 +173,7 @@
               <li class="wrapper-flex-row" v-for="(item,index) in whitePageList" :key="index"
                   @click="ethInput=item.tokenID">
                 <divn class="name ones">
-                  <img :src="item.icon" width="20" height="20" />
+                  <img :src="item.icon" width="20" height="20"/>
                   {{ item.name }}
                 </divn>
                 <divn class="reward">
@@ -312,7 +312,7 @@ export default {
       result: null,
       isNotNft: 0,
       needTokedShowNft: true,
-
+      endDate: null,
     }
   },
   computed: {},
@@ -352,6 +352,7 @@ export default {
       this.list = [];
       this.isNotNft = 0;
       this.isClick = false;
+      x
     },
     isAddress(n, o) {
       if (n) {
@@ -561,6 +562,9 @@ export default {
                   if (sentencesItem.tokenID == tokenID) {
                     that.sentenceList.push(sentencesItem)
                   }
+                  if (that.endDate) {
+                    that.$set(that, 'sentenceList', that.sentenceList.filter(item => item.tokenID != that.endDate));
+                  }
                 });
               });
             }
@@ -588,12 +592,11 @@ export default {
           console.log(res, "reqUrl res")
           if (res.status == 200) {
             that.needTokedShowNft = true;
-            let tokenID =
-                that.list.push({
-                  tokenID: Number(that.tokenID),
-                  image: that.ReplaceIPFS(res.data.image),
-                  name: res.data.name
-                });
+            that.list.push({
+              tokenID: Number(that.tokenID),
+              image: that.ReplaceIPFS(res.data.image),
+              name: res.data.name
+            });
             that.number = 1;
             // console.warn('image=>', res.data.image)
             // console.warn('that.ReplaceIPFS(res.data.image)', that.ReplaceIPFS(res.data.image))
@@ -741,7 +744,7 @@ export default {
               // console.log(url, "url")
               await axios.get(that.ReplaceIPFS(url)).then(res => {
                 // console.log(res.data.image, "res.data.image")
-                this.list.push({
+                that.list.push({
                   tokenID: tokenID,
                   image: that.ReplaceIPFS(res.data.image),
                   name: res.data.name
@@ -780,6 +783,8 @@ export default {
           from: that.address
         }).then(function (receipt) {
           loading.close();
+          that.endDate = that.sentenceNft.tokenID;
+          that.$set(that, 'sentenceList', that.sentenceList.filter(item => item.tokenID != that.endDate));
           sessionStorage.setItem('firstItem', 0);
           that.ethInput = '';
           that.isAddress = false;
@@ -793,7 +798,6 @@ export default {
           that.number = -1;
           that.showList = [];
           that.sentenceList = [];
-
           if (that.utilsEvent.isMobile()) {
             // that.$message({
             //   message: 'Synthesis succeeded!',
@@ -985,8 +989,6 @@ export default {
           //   message: 'No blockchain wallet installed',
           //   type: 'warning'
           // });
-
-
           this.$message.warning('No blockchain wallet installed');
 
         }
